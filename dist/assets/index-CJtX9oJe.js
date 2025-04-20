@@ -1,6 +1,6 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const s of e)if(s.type==="childList")for(const n of s.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&i(n)}).observe(document,{childList:!0,subtree:!0});function a(e){const s={};return e.integrity&&(s.integrity=e.integrity),e.referrerPolicy&&(s.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?s.credentials="include":e.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function i(e){if(e.ep)return;e.ep=!0;const s=a(e);fetch(e.href,s)}})();const l="/assets/simpl-C0w7cYg1.webp",c="/assets/moviex-CNgIVviJ.webp",d="/assets/stream-BhBkRCDq.webp";document.querySelector("#app").innerHTML=`
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const i of e)if(i.type==="childList")for(const n of i.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&s(n)}).observe(document,{childList:!0,subtree:!0});function a(e){const i={};return e.integrity&&(i.integrity=e.integrity),e.referrerPolicy&&(i.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?i.credentials="include":e.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function s(e){if(e.ep)return;e.ep=!0;const i=a(e);fetch(e.href,i)}})();document.querySelector("#app").innerHTML=`
   <div>
-        <nav>
+    <nav>
       <ul>
         <li>
           <a href="#home"
@@ -101,7 +101,7 @@
         <div class="projects">
           <div class="projects-container">
             <div class="project">
-              <img src="${l}" alt="Simpl" loading="lazy" />
+              <img src="../projects-img/simpl.webp" alt="Simpl" loading="lazy" />
               <h5>Simpl</h5>
               <p>
                 A lightweight notes app focused on minimalism and speed. All
@@ -116,7 +116,7 @@
               </div>
             </div>
             <div class="project" style="margin-top: 10px">
-              <img src="${d}" alt="Stream" loading="lazy" />
+              <img src="../projects-img/stream.webp" alt="Stream" loading="lazy" />
               <h5>Stream</h5>
               <p>
                 A personal feed of news and articles I check from time to time.
@@ -133,7 +133,7 @@
           </div>
           <div class="projects-container">
             <div class="project offset">
-              <img src="${c}" alt="MovieX" loading="lazy" />
+              <img src="../projects-img/moviex.webp" alt="MovieX" loading="lazy" />
               <h5>MovieX</h5>
               <p>
                 Discover trending movies with a clean, focused UI. Powered by a
@@ -162,4 +162,4 @@
       </div>
     </section>
   </div>
-`;const p=document.querySelectorAll("section"),v=document.querySelectorAll("nav a");function r(){let o="";p.forEach(t=>{const a=t.offsetTop;t.offsetHeight;const i=t.getAttribute("id");window.scrollY+window.innerHeight/2>=a&&(o=i)}),v.forEach(t=>{t.classList.remove("active"),t.getAttribute("href").includes(o)&&t.classList.add("active")})}window.addEventListener("scroll",r);window.addEventListener("load",r);
+`;const l=document.querySelectorAll("section"),c=document.querySelectorAll("nav a");function r(){let o="";l.forEach(t=>{const a=t.offsetTop;t.offsetHeight;const s=t.getAttribute("id");window.scrollY+window.innerHeight/2>=a&&(o=s)}),c.forEach(t=>{t.classList.remove("active"),t.getAttribute("href").includes(o)&&t.classList.add("active")})}window.addEventListener("scroll",r);window.addEventListener("load",r);

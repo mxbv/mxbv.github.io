@@ -1,11 +1,7 @@
 import "./assets/style.css";
-import logo from "./assets/img/logo.svg";
-import simpl from "./assets/img/simpl.webp";
-import moviex from "./assets/img/moviex.webp";
-import stream from "./assets/img/stream.webp";
 document.querySelector("#app").innerHTML = `
   <div>
-        <nav>
+    <nav>
       <ul>
         <li>
           <a href="#home"
@@ -106,7 +102,7 @@ document.querySelector("#app").innerHTML = `
         <div class="projects">
           <div class="projects-container">
             <div class="project">
-              <img src="${simpl}" alt="Simpl" loading="lazy" />
+              <img src="../projects-img/simpl.webp" alt="Simpl" loading="lazy" />
               <h5>Simpl</h5>
               <p>
                 A lightweight notes app focused on minimalism and speed. All
@@ -121,7 +117,7 @@ document.querySelector("#app").innerHTML = `
               </div>
             </div>
             <div class="project" style="margin-top: 10px">
-              <img src="${stream}" alt="Stream" loading="lazy" />
+              <img src="../projects-img/stream.webp" alt="Stream" loading="lazy" />
               <h5>Stream</h5>
               <p>
                 A personal feed of news and articles I check from time to time.
@@ -138,7 +134,7 @@ document.querySelector("#app").innerHTML = `
           </div>
           <div class="projects-container">
             <div class="project offset">
-              <img src="${moviex}" alt="MovieX" loading="lazy" />
+              <img src="../projects-img/moviex.webp" alt="MovieX" loading="lazy" />
               <h5>MovieX</h5>
               <p>
                 Discover trending movies with a clean, focused UI. Powered by a
