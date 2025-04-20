@@ -1,4 +1,4 @@
-import "./assets/style.css";
+import "./app.css";
 document.querySelector("#app").innerHTML = `
   <div>
     <nav>
