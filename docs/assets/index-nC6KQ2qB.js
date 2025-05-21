@@ -112,7 +112,7 @@
               </div>
               <div class="project-links">
                 <a href="/simpl/" class="live">Live</a
-                ><a href="https://github.com/mxbv/Simpl" class="code">Code</a>
+                ><a href="https://github.com/mxbv/Simpl-web" class="code">Code</a>
               </div>
             </div>
             <div class="project" style="margin-top: 10px">
