@@ -12,22 +12,22 @@ const About = () => {
     {
       icon: FaCode,
       title: "Coding",
-      description: "Building modern web applications",
+      description: "Building thoughtful and simple web experiences",
     },
     {
       icon: FaBook,
       title: "Reading",
-      description: "Philosophy, tech, and personal growth",
+      description: "Philosophy, design, and the human side of tech",
     },
     {
       icon: FaDumbbell,
       title: "Fitness",
-      description: "Staying active and healthy",
+      description: "Keeping the body active, the mind clear",
     },
     {
       icon: FaBrain,
       title: "Learning",
-      description: "Exploring new technologies",
+      description: "Learning ideas that connect creativity and logic",
     },
   ];
 
@@ -56,17 +56,16 @@ const About = () => {
             }`}
           >
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-in-left animate-delay-100">
-              I'm a passionate frontend developer with a love for creating
-              simple, elegant solutions to complex problems. My journey in tech
-              started with curiosity and has evolved into a deep appreciation
-              for clean code and user-centered design.
+              I’ve always been drawn to creating things that make sense —
+              simple, human, and well-crafted. My path in frontend development
+              started from curiosity and a desire to understand how ideas become
+              experiences.
             </p>
 
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed animate-fade-in-left animate-delay-200">
-              When I'm not coding, you'll find me reading philosophy books,
-              hitting the gym, or exploring new technologies. I believe that
-              great software comes from a balanced life where creativity,
-              physical health, and continuous learning work together.
+              When I’m not working, I read, move, and think. Philosophy helps me
+              see patterns, fitness keeps me grounded, and learning keeps me
+              curious.
             </p>
           </div>
 

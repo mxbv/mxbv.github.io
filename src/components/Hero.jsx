@@ -3,14 +3,17 @@ import { FaDownload } from "../icons";
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
-  
-  const roles = useMemo(() => [
-    "Frontend Developer",
-    "UI/UX Enthusiast",
-    "Book Reader",
-    "Fitness Enthusiast",
-    "Philosophy Explorer",
-  ], []);
+
+  const roles = useMemo(
+    () => [
+      "Frontend Developer",
+      "Curious Mind",
+      "Book & Tea Enjoyer",
+      "Active Lifestyle Advocate",
+      "Philosophy Explorer",
+    ],
+    []
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -48,9 +51,9 @@ const Hero = () => {
             {/* Description */}
             <div className="max-w-3xl mx-auto lg:mx-0 mb-6 animate-fade-in-up animate-delay-200">
               <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                I like staying active, reading, and exploring philosophy. Coding
-                is where I dive deep — always learning, always building. I
-                believe in keeping balance: physical, mental, and creative.
+                I enjoy staying active, reading, and exploring ideas that
+                challenge how we think. I value balance — between mind and body,
+                focus and rest, work and meaning.
               </p>
             </div>
 
