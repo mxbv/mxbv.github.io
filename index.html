@@ -2,60 +2,363 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Max Baranov - Frontend Developer. Creating simple tools for a complex world. Specialized in React, Vue.js, and modern web technologies." />
-    <meta name="keywords" content="frontend developer, react developer, vue.js, javascript, web development, portfolio, Max Baranov" />
+    <meta
+      name="description"
+      content="Max Baranov - Frontend & product design. Working on small, thoughtful projects."
+    />
     <meta name="author" content="Max Baranov" />
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Max Baranov - Frontend Developer" />
-    <meta property="og:description" content="Creating simple tools for a complex world. Specialized in React, Vue.js, and modern web technologies." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mxbv.github.io/portfolio-v2/" />
-    <meta property="og:image" content="https://mxbv.github.io/portfolio-v2/og-image.png" />
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Max Baranov - Frontend Developer" />
-    <meta name="twitter:description" content="Creating simple tools for a complex world. Specialized in React, Vue.js, and modern web technologies." />
-    <meta name="twitter:image" content="https://mxbv.github.io/portfolio-v2/og-image.png" />
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Max Baranov",
-      "jobTitle": "Frontend Developer",
-      "description": "Creating simple tools for a complex world. Specialized in React, Vue.js, and modern web technologies.",
-      "url": "https://mxbv.github.io/portfolio-v2/",
-      "sameAs": [
-        "https://github.com/mxbv"
-      ],
-      "knowsAbout": [
-        "React",
-        "Vue.js",
-        "JavaScript",
-        "TypeScript",
-        "HTML",
-        "CSS",
-        "Frontend Development"
-      ]
-    }
-    </script>
-    
-    <title>Max Baranov - Frontend Developer</title>
-    
-    
-    
-    <!-- DNS prefetch for external resources -->
-    <link rel="dns-prefetch" href="//github.com">
+    <meta
+      name="keywords"
+      content="Max Baranov, Frontend, Product Design, Developer, Designer, Portfolio, Projects, Work, Experience, Skills, About, Contact"
+    />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <title>Max Baranov - Frontend & product design</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "Helvetica Neue", Arial, sans-serif;
+        color: #1a1a1a;
+        background: #ffffff;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 60px 24px;
+        position: relative;
+      }
+
+      .lang-switcher {
+        position: absolute;
+        top: 60px;
+        right: 24px;
+        display: flex;
+        gap: 16px;
+        font-size: 15px;
+      }
+
+      .lang-switcher button {
+        background: none;
+        border: none;
+        color: #666;
+        cursor: pointer;
+        padding: 0;
+        font-size: 15px;
+        font-family: inherit;
+        transition: color 0.2s;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      .lang-switcher button:hover {
+        color: #000;
+      }
+
+      .lang-switcher button.active {
+        color: #000;
+        font-weight: 500;
+      }
+
+      @media (max-width: 640px) {
+        .lang-switcher {
+          top: 48px;
+          right: 20px;
+          gap: 12px;
+          font-size: 14px;
+        }
+
+        .lang-switcher button {
+          font-size: 14px;
+        }
+      }
+
+      h1 {
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+        color: #000;
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 48px;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+
+      .content {
+        font-size: 17px;
+        line-height: 1.75;
+        color: #333;
+        margin-bottom: 48px;
+      }
+
+      .content p {
+        margin-bottom: 24px;
+      }
+
+      .content p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .project-link {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 2px;
+        font-size: 17px;
+        transition: opacity 0.2s;
+      }
+      .svidomo {
+        text-decoration-color: #ff4714;
+      }
+      .sapiora {
+        text-decoration-color: #6c63ff;
+      }
+      .deardates {
+        text-decoration-color: #d68a9e;
+      }
+      .project-link:hover {
+        opacity: 0.6;
+      }
+
+      .links {
+        margin-top: 48px;
+      }
+
+      .links a {
+        color: #000;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+        font-size: 17px;
+        margin-right: 32px;
+        transition: opacity 0.2s;
+      }
+
+      .links a:hover {
+        opacity: 0.6;
+      }
+
+      .projects {
+        margin-top: 80px;
+        padding-top: 64px;
+        border-top: 1px solid #e5e5e5;
+      }
+
+      .projects h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 32px;
+        color: #000;
+      }
+
+      .project-list {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .project-item {
+        display: block;
+        text-decoration: none;
+        color: #000;
+        padding: 20px 0;
+        border-bottom: 1px solid #f0f0f0;
+        transition: opacity 0.2s;
+      }
+
+      .project-item:hover {
+        opacity: 0.6;
+      }
+
+      .project-item:last-child {
+        border-bottom: none;
+      }
+
+      .project-name {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .project-description {
+        font-size: 15px;
+        color: #666;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 48px 20px;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+
+        .subtitle {
+          font-size: 16px;
+        }
+
+        .content {
+          font-size: 16px;
+        }
+
+        .links a {
+          display: block;
+          margin-bottom: 12px;
+          margin-right: 0;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="container">
+      <div class="lang-switcher">
+        <button onclick="setLanguage('en')" class="active" id="lang-en">
+          EN
+        </button>
+        <button onclick="setLanguage('ua')" id="lang-ua">UA</button>
+        <button onclick="setLanguage('ru')" id="lang-ru">RU</button>
+      </div>
+
+      <h1 data-i18n="name">Max Baranov</h1>
+      <div class="subtitle" data-i18n="subtitle">Frontend & product design</div>
+
+      <div class="content">
+        <p data-i18n="text1">
+          I like when things are simple and easy to understand. I work on calm,
+          thoughtful products made to last. I enjoy small projects where details
+          matter, where design supports meaning, and code stays out of the way.
+        </p>
+        <p data-i18n="text2">
+          Lately, I've been involved in
+          <a
+            href="https://svidomo.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link svidomo"
+            >Svidomo</a
+          >,
+          <a
+            href="https://github.com/mxbv/Sapiora"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link sapiora"
+            >Sapiora</a
+          >, and
+          <a
+            href="https://github.com/mxbv/DearDates"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link deardates"
+            >Dear Dates</a
+          >
+          — projects built around clarity and balance.
+        </p>
+        <p data-i18n="text3">
+          I don't chase trends. I believe in slow, careful work — the kind that
+          stays useful after the noise fades.
+        </p>
+        <p data-i18n="text4">
+          If you'd like to share an idea or just talk, I'm around.
+        </p>
+      </div>
+
+      <div class="links">
+        <a href="mailto:max.qb@icloud.com">max.qb@icloud.com</a>
+        <a
+          href="https://github.com/mxbv"
+          target="_blank"
+          rel="noopener noreferrer"
+          >github.com/mxbv</a
+        >
+      </div>
+    </div>
+
+    <script>
+      const translations = {
+        en: {
+          name: "Max Baranov",
+          subtitle: "Frontend & product design",
+          text1:
+            "I like when things are simple and easy to understand. I work on calm, thoughtful products made to last. I enjoy small projects where details matter, where design supports meaning, and code stays out of the way.",
+          text2:
+            "Lately, I've been involved in <a href='https://svidomo.me' target='_blank' rel='noopener noreferrer' class='project-link svidomo'>Svidomo</a>, <a href='https://github.com/mxbv/Sapiora' target='_blank' rel='noopener noreferrer' class='project-link sapiora'>Sapiora</a>, and <a href='https://github.com/mxbv/DearDates' target='_blank' rel='noopener noreferrer' class='project-link deardates'>Dear Dates</a> — projects built around clarity and balance.",
+          text3:
+            "I don't chase trends. I believe in slow, careful work — the kind that stays useful after the noise fades.",
+          text4: "If you'd like to share an idea or just talk, I'm around.",
+        },
+        ua: {
+          name: "Максим Баранов",
+          subtitle: "Фронтенд та дизайн продуктів",
+          text1:
+            "Мені подобається, коли речі прості й зрозумілі. Працюю над спокійними, зручними у використанні й довговічними продуктами. Ціную невеликі проєкти, де важливі деталі, де дизайн підтримує сенс, а код не заважає.",
+          text2:
+            "Останнім часом беру участь у <a href='https://svidomo.me' target='_blank' rel='noopener noreferrer' class='project-link svidomo'>Svidomo</a>, <a href='https://github.com/mxbv/Sapiora' target='_blank' rel='noopener noreferrer' class='project-link sapiora'>Sapiora</a> та <a href='https://github.com/mxbv/DearDates' target='_blank' rel='noopener noreferrer' class='project-link deardates'>Dear Dates</a> — проєктах, побудованих на ясності й гармонії.",
+          text3:
+            "Не женуся за трендами. Вірю в повільну, продуману роботу — ту, що залишається корисною, коли ажіотаж минає.",
+          text4: "Якщо хочете поділитися ідеєю чи просто поговорити — я поруч.",
+        },
+        ru: {
+          name: "Максим Баранов",
+          subtitle: "Фронтенд и дизайн продуктов",
+          text1:
+            "Мне нравится, когда всё просто и понятно. Я работаю над спокойными, продуманными продуктами, которые служат долго. Предпочитаю небольшие проекты, где важны детали, где дизайн помогает смыслу, а код не мешает.",
+          text2:
+            "Сейчас занимаюсь <a href='https://svidomo.me' target='_blank' rel='noopener noreferrer' class='project-link svidomo'>Svidomo</a>, <a href='https://github.com/mxbv/Sapiora' target='_blank' rel='noopener noreferrer' class='project-link sapiora'>Sapiora</a> и <a href='https://github.com/mxbv/DearDates' target='_blank' rel='noopener noreferrer' class='project-link deardates'>Dear Dates</a> — проектами, построенными вокруг ясности и баланса.",
+          text3:
+            "Я не гонюсь за трендами. Мне ближе спокойная, вдумчивая работа — та, что остаётся полезной, когда шум утихает.",
+          text4:
+            "Если хочется поделиться идеей или просто поговорить — я на связи.",
+        },
+      };
+
+      function setLanguage(lang) {
+        localStorage.setItem("language", lang);
+
+        document.querySelectorAll(".lang-switcher button").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        document.getElementById(`lang-${lang}`).classList.add("active");
+
+        document.documentElement.lang = lang;
+
+        const elements = document.querySelectorAll("[data-i18n]");
+        elements.forEach((element) => {
+          const key = element.getAttribute("data-i18n");
+          if (translations[lang][key]) {
+            if (key === "text2") {
+              element.innerHTML = translations[lang][key];
+            } else {
+              element.textContent = translations[lang][key];
+            }
+          }
+        });
+      }
+      window.addEventListener("DOMContentLoaded", () => {
+        const savedLang = localStorage.getItem("language") || "en";
+        setLanguage(savedLang);
+      });
+    </script>
   </body>
 </html>
