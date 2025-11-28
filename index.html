@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Max Baranov - Frontend & product design. Working on small, thoughtful projects."
+      content="Max Baranov - AI-Driven Product Creator. Working on small, thoughtful projects."
     />
     <meta name="author" content="Max Baranov" />
     <meta
       name="keywords"
-      content="Max Baranov, Frontend, Product Design, Developer, Designer, Portfolio, Projects, Work, Experience, Skills, About, Contact"
+      content="Max Baranov, Product Design, Developer, Designer, Portfolio, Projects, Work, Experience, Skills, About, Contact, AI, Creator, Product Direction"
     />
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-    <title>Max Baranov - Frontend & product design</title>
+    <title>Max Baranov - AI-Driven Product Creator</title>
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        text-align: justify;
       }
 
       html {
@@ -26,6 +27,10 @@
       }
 
       body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
           "Helvetica Neue", Arial, sans-serif;
         color: #1a1a1a;
@@ -39,14 +44,12 @@
       .container {
         max-width: 680px;
         margin: 0 auto;
-        padding: 60px 24px;
-        position: relative;
       }
 
       .lang-switcher {
         position: absolute;
-        top: 60px;
-        right: 24px;
+        top: 20px;
+        right: 20px;
         display: flex;
         gap: 16px;
         font-size: 15px;
@@ -74,20 +77,6 @@
         color: #000;
         font-weight: 500;
       }
-
-      @media (max-width: 640px) {
-        .lang-switcher {
-          top: 48px;
-          right: 20px;
-          gap: 12px;
-          font-size: 14px;
-        }
-
-        .lang-switcher button {
-          font-size: 14px;
-        }
-      }
-
       h1 {
         font-size: 32px;
         font-weight: 600;
@@ -100,7 +89,7 @@
       .subtitle {
         font-size: 18px;
         color: #666;
-        margin-bottom: 48px;
+        margin-bottom: 24px;
         font-weight: 400;
         line-height: 1.4;
       }
@@ -109,7 +98,7 @@
         font-size: 17px;
         line-height: 1.75;
         color: #333;
-        margin-bottom: 48px;
+        margin-bottom: 32px;
       }
 
       .content p {
@@ -141,10 +130,6 @@
         opacity: 0.6;
       }
 
-      .links {
-        margin-top: 48px;
-      }
-
       .links a {
         color: #000;
         text-decoration: underline;
@@ -153,10 +138,35 @@
         font-size: 17px;
         margin-right: 32px;
         transition: opacity 0.2s;
+        cursor: pointer;
       }
 
       .links a:hover {
         opacity: 0.6;
+      }
+      .links,
+      .link {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .copy-notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #000;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 15px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        z-index: 1000;
+      }
+
+      .copy-notification.show {
+        opacity: 1;
       }
 
       .projects {
@@ -206,9 +216,9 @@
         color: #666;
       }
 
-      @media (max-width: 640px) {
+      @media (max-width: 980px) {
         .container {
-          padding: 48px 20px;
+          padding: 20px;
         }
 
         h1 {
@@ -222,11 +232,13 @@
         .content {
           font-size: 16px;
         }
+        .lang-switcher {
+          gap: 12px;
+          font-size: 14px;
+        }
 
-        .links a {
-          display: block;
-          margin-bottom: 12px;
-          margin-right: 0;
+        .lang-switcher button {
+          font-size: 14px;
         }
       }
     </style>
@@ -242,16 +254,17 @@
       </div>
 
       <h1 data-i18n="name">Max Baranov</h1>
-      <div class="subtitle" data-i18n="subtitle">Frontend & product design</div>
+      <div class="subtitle" data-i18n="subtitle">AI-Driven Product Creator</div>
 
       <div class="content">
         <p data-i18n="text1">
-          I like when things are simple and easy to understand. I work on calm,
-          thoughtful products made to last. I enjoy small projects where details
-          matter, where design supports meaning, and code stays out of the way.
+          I turn ideas into digital products - websites, applications, and
+          services that solve real problems. I shape the vision, define how it
+          works, and guide AI to build fast, clear, and functional.
         </p>
-        <p data-i18n="text2">
-          Lately, I've been involved in
+        <p data-i18n="text2">Calm, simple, useful products are my focus.</p>
+        <p data-i18n="text3">
+          Projects I've worked on:
           <a
             href="https://svidomo.me"
             target="_blank"
@@ -260,76 +273,97 @@
             >Svidomo</a
           >,
           <a
-            href="https://github.com/mxbv/Sapiora"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link sapiora"
-            >Sapiora</a
-          >, and
-          <a
             href="https://github.com/mxbv/DearDates"
             target="_blank"
             rel="noopener noreferrer"
             class="project-link deardates"
             >Dear Dates</a
+          >, and
+          <a
+            href="https://github.com/mxbv/Sapiora"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link sapiora"
+            >Sapiora</a
           >
-          — projects built around clarity and balance.
         </p>
-        <p data-i18n="text3">
-          I don't chase trends. I believe in slow, careful work — the kind that
-          stays useful after the noise fades.
-        </p>
-        <p data-i18n="text4">
-          If you'd like to share an idea or just talk, I'm around.
-        </p>
+        <p data-i18n="text4">Have an idea? Let’s make it real.</p>
       </div>
 
       <div class="links">
-        <a href="mailto:max.qb@icloud.com">max.qb@icloud.com</a>
+        <a id="email-link" class="link">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 16L4 16C2.89543 16 2 15.1046 2 14V4C2 2.89543 2.89543 2 4 2H14C15.1046 2 16 2.89543 16 4L16 8M10 22H20C21.1046 22 22 21.1046 22 20V10C22 8.89543 21.1046 8 20 8H10C8.89543 8 8 8.89543 8 10V20C8 21.1046 8.89543 22 10 22Z"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path></svg
+          >max.qb@icloud.com</a
+        >
         <a
           href="https://github.com/mxbv"
           target="_blank"
           rel="noopener noreferrer"
-          >github.com/mxbv</a
-        >
+          class="link"
+          ><svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 2H22M22 2V7M22 2L13 11M11 3H6C4.34315 3 3 4.34315 3 6V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V13"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path></svg
+          >github.com/mxbv
+        </a>
       </div>
+      <div id="copy-notification" class="copy-notification"></div>
     </div>
 
     <script>
       const translations = {
         en: {
           name: "Max Baranov",
-          subtitle: "Frontend & product design",
+          subtitle: "AI-Driven Product Creator",
           text1:
-            "I like when things are simple and easy to understand. I work on calm, thoughtful products made to last. I enjoy small projects where details matter, where design supports meaning, and code stays out of the way.",
-          text2:
-            "Lately, I've been involved in <a href='https://svidomo.me' target='_blank' rel='noopener noreferrer' class='project-link svidomo'>Svidomo</a>, <a href='https://github.com/mxbv/Sapiora' target='_blank' rel='noopener noreferrer' class='project-link sapiora'>Sapiora</a>, and <a href='https://github.com/mxbv/DearDates' target='_blank' rel='noopener noreferrer' class='project-link deardates'>Dear Dates</a> — projects built around clarity and balance.",
+            "I turn ideas into digital products - websites, applications, and services that solve real problems. I shape the vision, define how it works, and guide AI to build fast, clear, and functional.",
+          text2: "Calm, simple, useful products are my focus.",
           text3:
-            "I don't chase trends. I believe in slow, careful work — the kind that stays useful after the noise fades.",
-          text4: "If you'd like to share an idea or just talk, I'm around.",
+            "Projects : <a href='https://svidomo.me' target='_blank' rel='noopener noreferrer' class='project-link svidomo'>Svidomo</a>, <a href='https://github.com/mxbv/DearDates' target='_blank' rel='noopener noreferrer' class='project-link deardates'>Dear Dates</a>, and <a href='https://github.com/mxbv/Sapiora' target='_blank' rel='noopener noreferrer' class='project-link sapiora'>Sapiora</a>",
+          text4: "Have an idea? Let’s make it real.",
         },
         ua: {
           name: "Максим Баранов",
-          subtitle: "Фронтенд та дизайн продуктів",
+          subtitle: "Створюю продукти разом із ШІ ",
           text1:
-            "Мені подобається, коли речі прості й зрозумілі. Працюю над спокійними, зручними у використанні й довговічними продуктами. Ціную невеликі проєкти, де важливі деталі, де дизайн підтримує сенс, а код не заважає.",
-          text2:
-            "Останнім часом беру участь у <a href='https://svidomo.me' target='_blank' rel='noopener noreferrer' class='project-link svidomo'>Svidomo</a>, <a href='https://github.com/mxbv/Sapiora' target='_blank' rel='noopener noreferrer' class='project-link sapiora'>Sapiora</a> та <a href='https://github.com/mxbv/DearDates' target='_blank' rel='noopener noreferrer' class='project-link deardates'>Dear Dates</a> — проєктах, побудованих на ясності й гармонії.",
+            "Я перетворюю ідеї на цифрові продукти - сайти, застосунки та сервіси, що вирішують реальні задачі. Визначаю бачення, продумую роботу та керую ШІ, щоб створювати швидко та зрозуміло.",
+          text2: "Спокійні, прості, корисні продукти - моя спеціалізація.",
           text3:
-            "Не женуся за трендами. Вірю в повільну, продуману роботу — ту, що залишається корисною, коли ажіотаж минає.",
-          text4: "Якщо хочете поділитися ідеєю чи просто поговорити — я поруч.",
+            "Мої проекти: <a href='https://svidomo.me' target='_blank' rel='noopener noreferrer' class='project-link svidomo'>Svidomo</a>, <a href='https://github.com/mxbv/DearDates' target='_blank' rel='noopener noreferrer' class='project-link deardates'>Dear Dates</a>, і <a href='https://github.com/mxbv/Sapiora' target='_blank' rel='noopener noreferrer' class='project-link sapiora'>Sapiora</a>",
+          text4: "Є ідея? Давайте зробимо її реальною.",
         },
         ru: {
           name: "Максим Баранов",
-          subtitle: "Фронтенд и дизайн продуктов",
+          subtitle: "Создаю продукты вместе с ИИ",
           text1:
-            "Мне нравится, когда всё просто и понятно. Я работаю над спокойными, продуманными продуктами, которые служат долго. Предпочитаю небольшие проекты, где важны детали, где дизайн помогает смыслу, а код не мешает.",
-          text2:
-            "Сейчас занимаюсь <a href='https://svidomo.me' target='_blank' rel='noopener noreferrer' class='project-link svidomo'>Svidomo</a>, <a href='https://github.com/mxbv/Sapiora' target='_blank' rel='noopener noreferrer' class='project-link sapiora'>Sapiora</a> и <a href='https://github.com/mxbv/DearDates' target='_blank' rel='noopener noreferrer' class='project-link deardates'>Dear Dates</a> — проектами, построенными вокруг ясности и баланса.",
+            "Превращаю идеи в цифровые продукты - сайты, приложения, сервисы, которые решают реальные задачи. Определяю видение, продумываю работу и направляю ИИ, чтобы создавать быстро и понятно.",
+          text2: "Простые, спокойные, полезные продукты - мой фокус.",
           text3:
-            "Я не гонюсь за трендами. Мне ближе спокойная, вдумчивая работа — та, что остаётся полезной, когда шум утихает.",
-          text4:
-            "Если хочется поделиться идеей или просто поговорить — я на связи.",
+            "Мои проекты: <a href='https://svidomo.me' target='_blank' rel='noopener noreferrer' class='project-link svidomo'>Svidomo</a>, <a href='https://github.com/mxbv/DearDates' target='_blank' rel='noopener noreferrer' class='project-link deardates'>Dear Dates</a>, и <a href='https://github.com/mxbv/Sapiora' target='_blank' rel='noopener noreferrer' class='project-link sapiora'>Sapiora</a>",
+          text4: "Есть идея? Давайте реализуем её.",
         },
       };
 
@@ -347,7 +381,7 @@
         elements.forEach((element) => {
           const key = element.getAttribute("data-i18n");
           if (translations[lang][key]) {
-            if (key === "text2") {
+            if (key === "text3") {
               element.innerHTML = translations[lang][key];
             } else {
               element.textContent = translations[lang][key];
@@ -358,6 +392,35 @@
       window.addEventListener("DOMContentLoaded", () => {
         const savedLang = localStorage.getItem("language") || "en";
         setLanguage(savedLang);
+
+        // Email copy functionality
+        const emailLink = document.getElementById("email-link");
+        const notification = document.getElementById("copy-notification");
+        const notificationMessages = {
+          en: "Email copied!",
+          ua: "Email скопійовано!",
+          ru: "Email скопирован!",
+        };
+
+        emailLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          const email = "max.qb@icloud.com";
+
+          navigator.clipboard
+            .writeText(email)
+            .then(() => {
+              const currentLang = localStorage.getItem("language") || "en";
+              notification.textContent = notificationMessages[currentLang];
+              notification.classList.add("show");
+
+              setTimeout(() => {
+                notification.classList.remove("show");
+              }, 2000);
+            })
+            .catch((err) => {
+              console.error("Failed to copy email:", err);
+            });
+        });
       });
     </script>
   </body>
