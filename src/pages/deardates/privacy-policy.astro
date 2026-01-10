@@ -14,7 +14,7 @@ import Layout from "../../layouts/Layout.astro";
       </a>
     </div>
 
-    <article class="prose prose-invert max-w-none">
+    <article class="max-w-none">
       <header class="mb-12 border-b border-surface-border pb-12">
         <h1
           class="text-6xl md:text-7xl font-black text-white tracking-tighter leading-[0.9] mb-4"
@@ -510,3 +510,38 @@ import Layout from "../../layouts/Layout.astro";
     </article>
   </main>
 </Layout>
+
+<style is:global>
+  /* Ensure custom classes work on privacy policy page */
+  .text-text-dim {
+    color: #888888 !important;
+  }
+
+  .border-surface-border {
+    border-color: #262626 !important;
+  }
+
+  .bg-surface-dark {
+    background-color: #141414 !important;
+  }
+
+  .bg-surface-border {
+    background-color: #262626 !important;
+  }
+
+  .bg-background-dark {
+    background-color: #0d0d0d !important;
+  }
+
+  .text-primary {
+    color: #0d93f2 !important;
+  }
+
+  .bg-primary {
+    background-color: #0d93f2 !important;
+  }
+
+  .border-primary {
+    border-color: #0d93f2 !important;
+  }
+</style>

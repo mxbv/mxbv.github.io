@@ -22,5 +22,15 @@ export default {
     },
   },
   plugins: [],
+  safelist: [
+    'text-text-dim',
+    'border-surface-border',
+    'bg-surface-border',
+    'bg-surface-dark',
+    'bg-background-dark',
+    'text-primary',
+    'bg-primary',
+    'border-primary',
+  ],
 }
 
