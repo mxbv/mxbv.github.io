@@ -1,0 +1,97 @@
+---
+
+---
+
+<div
+  id="scroll-arrow"
+  class="fixed bottom-24 right-6 z-50 transition-all duration-300"
+>
+  <button
+    id="scroll-button"
+    class="w-12 h-12 rounded-full bg-surface-dark border border-surface-border flex items-center justify-center text-white transition-all group"
+    aria-label="Scroll to bottom"
+  >
+    <span
+      class="material-symbols-outlined transition-all duration-300 group-hover:scale-110"
+      id="scroll-icon">keyboard_arrow_down</span
+    >
+  </button>
+</div>
+
+<style>
+  #scroll-icon {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #scroll-icon.rotate-up {
+    transform: rotate(180deg);
+  }
+
+  #scroll-icon.rotate-down {
+    transform: rotate(0deg);
+  }
+</style>
+
+<script>
+  (function () {
+    if (typeof document === "undefined" || typeof window === "undefined")
+      return;
+
+    const scrollButton = document.getElementById("scroll-button");
+    const scrollIcon = document.getElementById("scroll-icon");
+    const scrollArrow = document.getElementById("scroll-arrow");
+    const contactSection = document.getElementById("contact");
+
+    if (!scrollButton || !scrollIcon || !scrollArrow) return;
+
+    function updateScrollButton() {
+      if (!contactSection || !scrollIcon || !scrollButton) return;
+
+      const contactRect = contactSection.getBoundingClientRect();
+      const isContactVisible = contactRect.top <= window.innerHeight * 0.5;
+
+      if (isContactVisible) {
+        // Показываем стрелку вверх с анимацией разворота
+        scrollIcon.classList.remove("rotate-down");
+        scrollIcon.classList.add("rotate-up");
+        scrollButton.setAttribute("aria-label", "Scroll to top");
+      } else {
+        // Показываем стрелку вниз с анимацией разворота
+        scrollIcon.classList.remove("rotate-up");
+        scrollIcon.classList.add("rotate-down");
+        scrollButton.setAttribute("aria-label", "Scroll to bottom");
+      }
+    }
+
+    function handleScroll() {
+      updateScrollButton();
+    }
+
+    function handleClick() {
+      if (!contactSection) return;
+
+      const contactRect = contactSection.getBoundingClientRect();
+      const isContactVisible = contactRect.top <= window.innerHeight * 0.5;
+
+      if (isContactVisible) {
+        // Скроллим наверх
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      } else {
+        // Скроллим к контактам
+        contactSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+
+    // Инициализация
+    updateScrollButton();
+    scrollButton.addEventListener("click", handleClick);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", updateScrollButton, { passive: true });
+  })();
+</script>

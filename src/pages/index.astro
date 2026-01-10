@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import FeaturedProjects from "../components/FeaturedProjects.astro";
+import ProductMindset from "../components/ProductMindset.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import ScrollArrow from "../components/ScrollArrow.astro";
+---
+
+<Layout>
+  <main class="w-full max-w-[1200px] mx-auto px-4 md:px-8 pt-12 pb-12">
+    <Hero />
+    <FeaturedProjects />
+    <ProductMindset />
+    <Contact />
+    <Footer />
+  </main>
+  <ScrollArrow />
+</Layout>

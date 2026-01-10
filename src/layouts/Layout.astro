@@ -1,0 +1,211 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Max Baranov - Product Creator & AI-Augmented Developer" } =
+  Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+    <meta
+      name="description"
+      content="Max Baranov - Bridging ideas and shipping products at 5x speed through AI-Augmented Engineering"
+    />
+    <title>{title}</title>
+    <!-- Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-background-dark min-h-screen flex flex-col font-display antialiased"
+  >
+    <slot />
+    <script is:inline>
+      // Защита от ошибок до загрузки DOM
+      (function () {
+        if (typeof window === "undefined" || typeof document === "undefined")
+          return;
+
+        // Перехватываем ошибки глобально
+        window.addEventListener(
+          "error",
+          function (e) {
+            if (
+              e.message &&
+              (e.message.includes("document.body") ||
+                e.message.includes("null is not an object") ||
+                e.message.includes("scrollHeight"))
+            ) {
+              // Игнорируем ошибки, связанные с document.body до загрузки
+              e.preventDefault();
+              e.stopPropagation();
+              return false;
+            }
+          },
+          true
+        );
+
+        // Защита document.body.scrollHeight через прокси
+        try {
+          if (document.body === null) {
+            const bodyDescriptor = Object.getOwnPropertyDescriptor(
+              document,
+              "body"
+            );
+            if (bodyDescriptor && bodyDescriptor.get) {
+              const originalGet = bodyDescriptor.get;
+              Object.defineProperty(document, "body", {
+                get: function () {
+                  const body = originalGet.call(document);
+                  if (!body) {
+                    // Возвращаем безопасный объект-заглушку
+                    return {
+                      scrollHeight: 0,
+                      scrollTop: 0,
+                      scrollWidth: 0,
+                      clientHeight: 0,
+                      clientWidth: 0,
+                      offsetHeight: 0,
+                      offsetWidth: 0,
+                      addEventListener: function () {},
+                      removeEventListener: function () {},
+                      appendChild: function () {},
+                      removeChild: function () {},
+                      querySelector: function () {
+                        return null;
+                      },
+                      querySelectorAll: function () {
+                        return [];
+                      },
+                      getElementsByTagName: function () {
+                        return [];
+                      },
+                      getElementsByClassName: function () {
+                        return [];
+                      },
+                      style: {},
+                      classList: {
+                        add: function () {},
+                        remove: function () {},
+                        toggle: function () {},
+                      },
+                      setAttribute: function () {},
+                      getAttribute: function () {
+                        return null;
+                      },
+                      removeAttribute: function () {},
+                    };
+                  }
+                  return body;
+                },
+                configurable: true,
+              });
+            }
+          }
+        } catch (e) {
+          // Игнорируем ошибки при попытке переопределить body
+        }
+      })();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* Local fonts */
+  @font-face {
+    font-family: "Inter";
+    src: url("/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf")
+      format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    font-optical-sizing: auto;
+  }
+
+  @font-face {
+    font-family: "Space Mono";
+    src: url("/assets/fonts/Space_Mono/SpaceMono-Regular.ttf")
+      format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+  }
+
+  .bento-card {
+    background-color: #141414;
+    border: 1px solid #262626;
+    transition: all 0.3s ease;
+  }
+
+  .bento-card:hover {
+    border-color: #333333;
+    transform: translateY(-2px);
+  }
+
+  .glow-hover:hover {
+    box-shadow: 0 0 25px rgba(13, 147, 242, 0.15);
+    border-color: rgba(13, 147, 242, 0.3);
+  }
+
+  /* Custom color utilities */
+  .text-primary {
+    color: #0d93f2 !important;
+  }
+
+  .bg-primary {
+    background-color: #0d93f2 !important;
+  }
+
+  .border-primary {
+    border-color: #0d93f2 !important;
+  }
+
+  .text-text-dim {
+    color: #888888 !important;
+  }
+
+  .bg-background-dark {
+    background-color: #0d0d0d !important;
+  }
+
+  .bg-surface-dark {
+    background-color: #141414 !important;
+  }
+
+  .border-surface-border {
+    border-color: #262626 !important;
+  }
+
+  .bg-surface-border {
+    background-color: #262626 !important;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d0d0d;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #262626;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #444;
+  }
+</style>

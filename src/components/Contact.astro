@@ -1,0 +1,51 @@
+---
+import { contacts } from "../data/contacts";
+---
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4" id="contact">
+  <div
+    class="bento-card rounded-2xl p-10 md:p-14 flex flex-col justify-center items-start"
+  >
+    <h2
+      class="text-6xl md:text-7xl font-black text-white tracking-tighter leading-[0.9] mb-8"
+    >
+      LET'S<br />MAKE IT <br /> REAL
+    </h2>
+    <button
+      class="bg-primary hover:bg-primary text-white font-bold py-4 px-8 rounded-lg transition-all flex items-center gap-2 group"
+    >
+      <span>Initiate Project</span>
+      <span
+        class="material-symbols-outlined group-hover:translate-x-1 transition-transform"
+        >arrow_forward</span
+      >
+    </button>
+  </div>
+  <div class="flex flex-col gap-4">
+    {contacts.map((contact) => (
+      <a
+        class="flex-1 bento-card rounded-2xl p-6 flex items-center justify-between group hover:border-primary transition-colors"
+        href={contact.href}
+        target={contact.href.startsWith("http") ? "_blank" : undefined}
+        rel={
+          contact.href.startsWith("http") ? "noopener noreferrer" : undefined
+        }
+      >
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg bg-surface-dark border border-surface-border flex items-center justify-center text-white group-hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">{contact.icon}</span>
+          </div>
+          <div>
+            <p class="text-sm font-mono text-text-dim uppercase">
+              {contact.label}
+            </p>
+            <p class="text-lg font-bold text-white">{contact.value}</p>
+          </div>
+        </div>
+        <span class="material-symbols-outlined text-gray-500 group-hover:text-white transition-colors">
+          arrow_outward
+        </span>
+      </a>
+    ))}
+  </div>
+</section>

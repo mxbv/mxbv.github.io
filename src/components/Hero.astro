@@ -1,0 +1,145 @@
+---
+---
+
+<section class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-4" id="hero">
+  <!-- Main Title Cell -->
+  <div
+    class="col-span-1 md:col-span-8 lg:col-span-9 bento-card rounded-2xl p-8 md:p-12 relative overflow-hidden group"
+  >
+    <div class="absolute top-0 right-0 p-6 opacity-20">
+      <span class="material-symbols-outlined text-6xl">design_services</span>
+    </div>
+    <div class="h-full flex flex-col justify-between gap-8 relative z-10">
+      <div>
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-surface-border bg-background-dark backdrop-blur mb-6"
+        >
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          <span class="text-xs font-mono text-text-dim uppercase tracking-wider"
+            >Available for new projects</span
+          >
+        </div>
+        <h1
+          class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-4"
+        >
+          Max<br />Baranov
+        </h1>
+        <p
+          class="text-lg md:text-xl text-gray-400 max-w-2xl font-light leading-relaxed"
+        >
+          Product Engineer & AI-Augmented Developer
+        </p>
+      </div>
+      <p
+        class="text-lg md:text-xl text-gray-400 max-w-2xl font-light leading-relaxed"
+      >
+        I bridge the gap between abstract ideas and high-performance digital
+        products. Specialized in crafting seamless web interfaces and native iOS
+        applications with a focus on speed, utility, and aesthetic precision.
+      </p>
+    </div>
+    <!-- Animated gradient background -->
+    <div class="absolute inset-0 pointer-events-none hero-gradient-overlay"></div>
+    <div class="absolute inset-0 pointer-events-none hero-animated-gradient"></div>
+  </div>
+
+  <!-- AI Stack Widget Cell -->
+  <div
+    class="col-span-1 md:col-span-4 lg:col-span-3 bento-card rounded-2xl p-6 flex flex-col justify-between group glow-hover relative overflow-hidden"
+  >
+    <div
+          class="absolute inset-0"
+    >
+    </div>
+    <div class="relative z-10">
+      <div class="flex items-center justify-between mb-4">
+        <span
+          class="text-xs font-mono text-primary uppercase tracking-widest border border-primary px-2 py-0.5 rounded"
+          >The Engine</span
+        >
+        <span class="material-symbols-outlined text-primary">bolt</span>
+      </div>
+      <div class="flex flex-col gap-4 my-4">
+        <div class="flex items-center gap-3 text-sm font-mono text-gray-300">
+          <span class="material-symbols-outlined text-base">architecture</span>
+          <span>Strategy</span>
+        </div>
+        <div class="w-0.5 h-4 bg-surface-border ml-2"></div>
+        <div class="flex items-center gap-3 text-sm font-mono text-white">
+          <span class="material-symbols-outlined text-base text-primary"
+            >smart_toy</span
+          >
+          <span>AI</span>
+        </div>
+        <div class="w-0.5 h-4 bg-surface-border ml-2"></div>
+        <div class="flex items-center gap-3 text-sm font-mono text-gray-300">
+          <span class="material-symbols-outlined text-base">code</span>
+          <span>Adjustment</span>
+        </div>
+        <div class="w-0.5 h-4 bg-surface-border ml-2"></div>
+        <div class="flex items-center gap-3 text-sm font-mono text-gray-300">
+          <span class="material-symbols-outlined text-base">done</span>
+          <span>Completed product</span>
+        </div>
+      </div>
+    </div>
+    <div class="relative z-10 mt-4 pt-4 border-t border-surface-border">
+      <p class="text-xs text-text-dim font-mono mb-1">Time to Deploy</p>
+      <p class="text-2xl font-bold text-white">&lt; 24 Hours</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-gradient-overlay {
+    background: 
+      radial-gradient(circle at 0% 100%, rgba(13, 147, 242, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(13, 147, 242, 0.05) 0%, transparent 60%),
+      linear-gradient(45deg, rgba(13, 147, 242, 0.04) 0%, transparent 40%);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .hero-gradient-overlay:hover {
+    opacity: 1.05;
+  }
+
+  .hero-animated-gradient {
+    background: linear-gradient(to top, rgba(13, 147, 242, 0.15) 0%, transparent 60%);
+    animation: shimmer 4s ease-in-out infinite;
+    bottom: 0;
+    top: auto;
+    height: 100%;
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .hero-animated-gradient::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(13, 147, 242, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(13, 147, 242, 0.15) 0%, transparent 50%);
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+</style>
