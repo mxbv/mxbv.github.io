@@ -22,7 +22,7 @@ import Layout from "../../layouts/Layout.astro";
           PRIVACY POLICY
         </h1>
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">
-          DearDates
+          Dear Dates
         </h2>
         <p class="text-text-dim font-mono text-sm uppercase">
           Last Updated: 2026-01-10
@@ -32,10 +32,10 @@ import Layout from "../../layouts/Layout.astro";
       <section class="mb-12 border-b border-surface-border pb-12">
         <h2 class="text-3xl font-bold text-white mb-6">INTRODUCTION</h2>
         <p class="text-lg text-white leading-relaxed mb-4">
-          Welcome to DearDates ("we," "our," or "the app").
+          Welcome to Dear Dates ("we," "our," or "the app").
         </p>
         <p class="text-lg text-white leading-relaxed">
-          Your privacy is a core value of DearDates. This Privacy Policy
+          Your privacy is a core value of Dear Dates. This Privacy Policy
           explains how information is handled when you use our iOS application.
         </p>
       </section>
@@ -45,11 +45,11 @@ import Layout from "../../layouts/Layout.astro";
           OUR PRIVACY COMMITMENT
         </h2>
         <p class="text-lg text-white leading-relaxed mb-4">
-          DearDates is designed to work without collecting, tracking, or
+          Dear Dates is designed to work without collecting, tracking, or
           transmitting your personal data.
         </p>
         <p class="text-lg text-white leading-relaxed">
-          All information you enter stays on your device and remains under your
+          All information you enter stays on your device and remains fully under your
           control.
         </p>
       </section>
@@ -59,7 +59,7 @@ import Layout from "../../layouts/Layout.astro";
           INFORMATION WE STORE (LOCALLY ON YOUR DEVICE)
         </h2>
         <p class="text-lg text-white leading-relaxed mb-6">
-          DearDates stores all data locally on your iOS device only. We do not
+          Dear Dates stores all data locally on your iOS device only. We do not
           operate servers and do not sync or transmit your data.
         </p>
 
@@ -102,13 +102,25 @@ import Layout from "../../layouts/Layout.astro";
               notification settings
             </span>
           </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-xl">•</span>
+            <span class="text-lg text-white leading-relaxed">
+              <strong>Notification Data:</strong> minimal notification information (event names, dates, reminder days) stored separately for notification delivery
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-xl">•</span>
+            <span class="text-lg text-white leading-relaxed">
+              <strong>App Preferences:</strong> language settings, onboarding completion status, and other preferences stored using iOS UserDefaults
+            </span>
+          </li>
         </ul>
         <p class="text-lg text-white leading-relaxed mb-4">
           All data is stored using SwiftData, Apple's native data persistence
-          framework.
+          framework, and UserDefaults for app preferences.
         </p>
         <p class="text-lg text-white leading-relaxed">
-          We do not access, transmit, or back up this data to any external
+          We do not access, transmit, back up, or sync this data to any external
           servers or cloud services.
         </p>
       </section>
@@ -116,7 +128,7 @@ import Layout from "../../layouts/Layout.astro";
       <section class="mb-12 border-b border-surface-border pb-12">
         <h2 class="text-3xl font-bold text-white mb-6">PHOTO LIBRARY ACCESS</h2>
         <p class="text-lg text-white leading-relaxed mb-4">
-          If you choose to add photos to profiles, DearDates may request access
+          If you choose to add photos to profiles, Dear Dates may request access
           to your Photo Library.
         </p>
         <p class="text-lg text-white leading-relaxed mb-4">This access:</p>
@@ -154,7 +166,7 @@ import Layout from "../../layouts/Layout.astro";
       <section class="mb-12 border-b border-surface-border pb-12">
         <h2 class="text-3xl font-bold text-white mb-6">NOTIFICATIONS</h2>
         <p class="text-lg text-white leading-relaxed mb-4">
-          DearDates uses local notifications to remind you of upcoming events.
+          Dear Dates uses local notifications to remind you of upcoming events.
         </p>
         <p class="text-lg text-white leading-relaxed mb-4">
           These notifications:
@@ -181,7 +193,19 @@ import Layout from "../../layouts/Layout.astro";
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Can be disabled at any time in app settings or iOS Settings
+              Can be disabled at any time in the app settings or iOS Settings
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-xl">•</span>
+            <span class="text-lg text-white leading-relaxed">
+              Require minimal data (event names, dates, reminder days) to be stored separately for delivery when your device is locked
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-xl">•</span>
+            <span class="text-lg text-white leading-relaxed">
+              Use iOS file protection mechanisms and are accessible only after your device is first unlocked following a restart
             </span>
           </li>
         </ul>
@@ -192,7 +216,7 @@ import Layout from "../../layouts/Layout.astro";
           INFORMATION WE DO NOT COLLECT
         </h2>
         <p class="text-lg text-white leading-relaxed mb-4">
-          DearDates does not collect, transmit, or store:
+          Dear Dates does not collect, transmit, or store:
         </p>
         <ul class="list-none space-y-3">
           <li class="flex items-start gap-3">
@@ -209,19 +233,20 @@ import Layout from "../../layouts/Layout.astro";
           </li>
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
-            <span class="text-lg text-white leading-relaxed">Crash reports</span
-            >
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed"
-              >Device identifiers</span
+              >Third-party analytics</span
             >
           </li>
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed"
               >Advertising identifiers</span
+            >
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-xl">•</span>
+            <span class="text-lg text-white leading-relaxed"
+              >Device identifiers</span
             >
           </li>
           <li class="flex items-start gap-3">
@@ -243,10 +268,13 @@ import Layout from "../../layouts/Layout.astro";
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Any personally identifiable information outside your device
+              Personally identifiable information outside your device
             </span>
           </li>
         </ul>
+        <p class="text-lg text-white leading-relaxed mt-4">
+          Dear Dates does not use third-party crash reporting services and does not collect crash data outside Apple's standard development and distribution tools.
+        </p>
       </section>
 
       <section class="mb-12 border-b border-surface-border pb-12">
@@ -262,13 +290,19 @@ import Layout from "../../layouts/Layout.astro";
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Your data never leaves your device through DearDates
+              Your data never leaves your device through Dear Dates
             </span>
           </li>
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Your data is encrypted by iOS when your device is locked
+              Your main database is encrypted by iOS using NSFileProtectionComplete and is accessible only when your device is unlocked
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-xl">•</span>
+            <span class="text-lg text-white leading-relaxed">
+              Notification-related data is stored separately using NSFileProtectionCompleteUntilFirstUserAuthentication to ensure reminders work correctly
             </span>
           </li>
           <li class="flex items-start gap-3">
@@ -281,10 +315,13 @@ import Layout from "../../layouts/Layout.astro";
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              DearDates does not control, access, or manage these backups
+              Dear Dates does not access, control, or manage these backups
             </span>
           </li>
         </ul>
+        <p class="text-lg text-white leading-relaxed">
+          All file protection and encryption are handled by iOS and follow Apple's security best practices.
+        </p>
       </section>
 
       <section class="mb-12 border-b border-surface-border pb-12">
@@ -292,7 +329,7 @@ import Layout from "../../layouts/Layout.astro";
           DATA SHARING AND TRANSMISSION
         </h2>
         <p class="text-lg text-white leading-relaxed mb-4">
-          DearDates does not share, sell, rent, or transmit your data to:
+          Dear Dates does not share, sell, rent, or transmit your data to:
         </p>
         <ul class="list-none space-y-3 mb-6">
           <li class="flex items-start gap-3">
@@ -344,14 +381,25 @@ import Layout from "../../layouts/Layout.astro";
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Export all your data at any time as a JSON file using the app's
-              export feature
+              Export all your data at any time as a JSON file using the app's export feature
             </span>
           </li>
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Delete individual profiles, events, or gifts within the app
+              Import previously exported data using the app's import feature
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-xl">•</span>
+            <span class="text-lg text-white leading-relaxed">
+              Search and filter your data within the app (all processing is performed locally)
+            </span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-xl">•</span>
+            <span class="text-lg text-white leading-relaxed">
+              Delete individual profiles, events, or gift ideas
             </span>
           </li>
           <li class="flex items-start gap-3">
@@ -360,13 +408,19 @@ import Layout from "../../layouts/Layout.astro";
               Remove all data by uninstalling the app
             </span>
           </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-xl">•</span>
+            <span class="text-lg text-white leading-relaxed">
+              Reset app preferences by uninstalling and reinstalling the app
+            </span>
+          </li>
         </ul>
       </section>
 
       <section class="mb-12">
         <h2 class="text-3xl font-bold text-white mb-6">THIRD-PARTY SERVICES</h2>
         <p class="text-lg text-white leading-relaxed mb-4">
-          DearDates does not use third-party services that collect or transmit
+          Dear Dates does not use third-party services that collect or transmit
           personal data.
         </p>
         <p class="text-lg text-white leading-relaxed mb-4">
@@ -391,6 +445,14 @@ import Layout from "../../layouts/Layout.astro";
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">Photos</span>
           </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-xl">•</span>
+            <span class="text-lg text-white leading-relaxed">Foundation</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary text-xl">•</span>
+            <span class="text-lg text-white leading-relaxed">UserDefaults</span>
+          </li>
         </ul>
         <p class="text-lg text-white leading-relaxed">
           No advertising, analytics, crash reporting, or cloud synchronization
@@ -401,15 +463,13 @@ import Layout from "../../layouts/Layout.astro";
       <section class="mb-12 border-b border-surface-border pb-12">
         <h2 class="text-3xl font-bold text-white mb-6">CHILDREN'S PRIVACY</h2>
         <p class="text-lg text-white leading-relaxed mb-4">
-          DearDates is not directed to children under the age of 13.
+          Dear Dates is not specifically designed for children under the age of 13.
         </p>
         <p class="text-lg text-white leading-relaxed mb-4">
-          We do not knowingly collect personal information from children under
-          13.
+          We do not knowingly collect personal information from children under 13.
         </p>
         <p class="text-lg text-white leading-relaxed">
-          If applicable, and if you believe a child has provided personal
-          information, please contact us so we can address the issue.
+          If you believe that a child has provided personal information within the app, please contact us so we can address the issue.
         </p>
       </section>
       <section class="mb-12 border-b border-surface-border pb-12">
@@ -489,18 +549,19 @@ import Layout from "../../layouts/Layout.astro";
         </p>
         <p class="text-lg text-white leading-relaxed">
           Because all data is stored locally on your device and not transmitted,
-          DearDates provides a high level of privacy protection regardless of
+          Dear Dates provides a high level of privacy protection regardless of
           your location.
         </p>
       </section>
       <section class="mb-12 border-b border-surface-border pb-12">
         <h2 class="text-3xl font-bold text-white mb-6">CONCLUSION</h2>
         <p class="text-lg text-white leading-relaxed mb-4">
-          DearDates is built with privacy at its core.
+          Dear Dates is built with privacy at its core.
         </p>
         <p class="text-lg text-white leading-relaxed mb-4">
-          We don't collect your data. We don't track you. We don't share your
-          information.
+          We don't collect your data.
+          We don't track you.
+          We don't share your information.
         </p>
         <p class="text-lg text-white leading-relaxed">
           Your memories stay private — exactly where they belong: on your
