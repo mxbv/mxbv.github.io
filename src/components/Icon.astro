@@ -1,0 +1,156 @@
+---
+import { readFileSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+interface Props {
+  name: string;
+  variant?: "outline" | "solid" | "mini";
+  size?: string | number;
+  class?: string;
+  id?: string;
+}
+
+const {
+  name,
+  variant = "outline",
+  size = 24,
+  class: className = "",
+  id,
+} = Astro.props;
+
+// Маппинг Material Symbols на Heroicons (kebab-case имена для файлов)
+const iconMap: Record<string, string> = {
+  design_services: "paint-brush",
+  bolt: "bolt",
+  architecture: "building-office-2",
+  smart_toy: "cpu-chip",
+  code: "code-bracket",
+  done: "check-circle",
+  view_kanban: "squares-2x2",
+  arrow_outward: "arrow-top-right-on-square",
+  precision_manufacturing: "cog-6-tooth",
+  arrow_forward: "arrow-right",
+  mail: "envelope",
+  send: "paper-airplane",
+  link: "link",
+  keyboard_arrow_down: "chevron-down",
+  person: "user",
+  sort: "bars-arrow-up",
+  notifications: "bell",
+  card_giftcard: "gift",
+  calendar_month: "calendar-days",
+  lock: "lock-closed",
+  arrow_back: "arrow-left",
+  home: "home",
+};
+
+const heroiconName = iconMap[name] || name;
+// Heroicons React хранит иконки в JS файлах с PascalCase именами
+const iconComponentName = `${heroiconName
+  .split("-")
+  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+  .join("")}Icon`;
+
+let iconContent = "";
+let viewBox = "0 0 24 24";
+
+try {
+  // Получаем корень проекта - пробуем разные способы
+  let projectRoot: string;
+  try {
+    // В Astro process.cwd() должен работать
+    projectRoot = process.cwd();
+  } catch {
+    // Fallback: используем import.meta.url
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+    projectRoot = join(__dirname, "../../../");
+  }
+
+  // Heroicons React структура: node_modules/@heroicons/react/24/outline/IconNameIcon.js
+  const sizeDir = variant === "mini" ? "20" : "24";
+  const variantDir = variant === "mini" ? "solid" : variant;
+  const iconPath = join(
+    projectRoot,
+    "node_modules",
+    "@heroicons",
+    "react",
+    sizeDir,
+    variantDir,
+    `${iconComponentName}.js`,
+  );
+
+  // Читаем JS файл и извлекаем SVG из JSX
+  const jsContent = readFileSync(iconPath, "utf-8");
+
+  // Ищем viewBox в svg элементе
+  const viewBoxMatch = jsContent.match(/viewBox:\s*"([^"]+)"/);
+  if (viewBoxMatch) {
+    viewBox = viewBoxMatch[1];
+  }
+
+  // Извлекаем все path элементы из JSX
+  // Ищем все вхождения React.createElement("path", {...})
+  const pathMatches = [
+    ...jsContent.matchAll(/React\.createElement\("path",\s*\{([\s\S]*?)\}\)/g),
+  ];
+
+  for (const match of pathMatches) {
+    const pathProps = match[1];
+    const pathAttrs: string[] = [];
+
+    // Извлекаем d атрибут - может быть на одной или нескольких строках
+    const dMatch = pathProps.match(/d:\s*"([^"]+)"/);
+    if (dMatch) {
+      pathAttrs.push(`d="${dMatch[1]}"`);
+    }
+
+    // Извлекаем strokeLinecap
+    const strokeLinecapMatch = pathProps.match(/strokeLinecap:\s*"([^"]+)"/);
+    if (strokeLinecapMatch) {
+      pathAttrs.push(`stroke-linecap="${strokeLinecapMatch[1]}"`);
+    }
+
+    // Извлекаем strokeLinejoin
+    const strokeLinejoinMatch = pathProps.match(/strokeLinejoin:\s*"([^"]+)"/);
+    if (strokeLinejoinMatch) {
+      pathAttrs.push(`stroke-linejoin="${strokeLinejoinMatch[1]}"`);
+    }
+
+    if (pathAttrs.length > 0) {
+      iconContent += `<path ${pathAttrs.join(" ")} />`;
+    }
+  }
+} catch (e: any) {
+  if (import.meta.env.DEV) {
+    const errorMsg = e?.message || String(e);
+    const errorPath = e?.path || "unknown";
+    console.warn(`Icon not found: ${heroiconName} (${variant})`, {
+      error: errorMsg,
+      path: errorPath,
+      componentName: iconComponentName,
+    });
+  }
+}
+
+const sizeValue = typeof size === "number" ? `${size}px` : size;
+---
+
+{
+  iconContent && (
+    <svg
+      width={sizeValue}
+      height={sizeValue}
+      viewBox={viewBox}
+      fill={variant === "solid" ? "currentColor" : "none"}
+      stroke={variant === "solid" ? "none" : "currentColor"}
+      stroke-width={variant === "solid" ? "0" : "1.5"}
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class={className}
+      id={id}
+      set:html={iconContent}
+    />
+  )
+}

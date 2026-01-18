@@ -1,0 +1,131 @@
+---
+import DearDatesLayout from "../../layouts/DearDatesLayout.astro";
+import Icon from "../../components/Icon.astro";
+import { features } from "../../data/features";
+---
+
+<DearDatesLayout title="Dear Dates - Remember What's Important">
+  <main class="w-full max-w-6xl mx-auto px-4 md:px-8 pt-12 md:pt-20 pb-24">
+    <!-- Header Section -->
+    <div class="text-center mb-20 md:mb-20">
+      <div class="flex justify-center mb-10">
+        <div class="relative">
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-pink-300/30 to-rose-300/30 rounded-3xl blur-2xl"
+          >
+          </div>
+          <img
+            src="/assets/img/projects/dearDates.png"
+            alt="Dear Dates App Icon"
+            class="relative w-32 h-32 md:w-40 md:h-40 rounded-3xl shadow-xl"
+          />
+        </div>
+      </div>
+      <h1
+        class="text-5xl md:text-7xl font-black text-gray-900 tracking-tight mb-6"
+      >
+        Dear Dates
+      </h1>
+      <p
+        class="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto leading-relaxed mb-8 font-light"
+      >
+        Never miss a moment that matters. Keep track of the people you care
+        about and celebrate them right on time.
+      </p>
+      <p
+        class="text-base md:text-lg text-gray-600 max-w-xl mx-auto leading-relaxed mb-10"
+      >
+        All your important dates, gift ideas, and personal notes — beautifully
+        organized in one place. Your memories, your control.
+      </p>
+      <!-- Download Button -->
+      <a
+        href="#"
+        class="inline-flex items-center gap-3 bg-black hover:opacity-90 transition-opacity duration-200 rounded-[13px] px-5 py-2.5 shadow-lg"
+        aria-label="Download on the App Store"
+        style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;"
+      >
+        <!-- Apple Logo -->
+        <svg
+          fill="#ffffff"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          class="flex-shrink-0"
+        >
+          <path
+            d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"
+          ></path>
+        </svg>
+        <!-- Text -->
+        <div class="flex flex-col items-start leading-none">
+          <span
+            class="text-white text-[10px] leading-[1.2] font-normal tracking-tight"
+          >
+            Download on the
+          </span>
+          <span
+            class="text-white text-[17px] leading-[1.2] font-semibold tracking-tight"
+          >
+            App Store
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+      {
+        features.map((feature) => (
+          <div class="group bg-white/90 backdrop-blur-sm rounded-2xl p-7 shadow-sm hover:shadow-xl transition-all duration-300 border border-pink-100/50 hover:border-pink-300/70 hover:-translate-y-1">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-400/90 to-rose-400/90 flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 transition-transform duration-300">
+              <Icon name={feature.icon} size={28} class="text-white text-2xl" />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-pink-600 transition-colors duration-300">
+              {feature.title}
+            </h3>
+            <p class="text-gray-600 leading-relaxed text-[15px]">
+              {feature.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Footer Links -->
+    <div class="text-center pt-8">
+      <div class="flex flex-wrap justify-center gap-6 text-gray-600">
+        <a
+          href="/deardates/privacy-policy"
+          class="hover:text-pink-600 transition-colors duration-200"
+        >
+          Privacy Policy
+        </a>
+      </div>
+      <p class="text-sm text-gray-500 mt-6">
+        © 2026 Dear Dates. Made with care.
+      </p>
+    </div>
+
+    <!-- Floating Home Button -->
+    <a
+      href="/"
+      class="fixed bottom-24 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
+      aria-label="Back to Home"
+    >
+      <Icon
+        name="home"
+        size={24}
+        class="transition-all duration-300 group-hover:scale-110"
+      />
+    </a>
+  </main>
+</DearDatesLayout>
+
+<style>
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

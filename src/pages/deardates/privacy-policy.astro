@@ -1,16 +1,17 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Icon from "../../components/Icon.astro";
 ---
 
 <Layout title="Privacy Policy - DearDates">
   <main class="w-full max-w-4xl mx-auto px-4 md:px-8 pt-12 pb-24">
     <div class="mb-8">
       <a
-        href="/"
+        href="/deardates"
         class="inline-flex items-center gap-2 text-text-dim hover:text-white transition-colors mb-8"
       >
-        <span class="material-symbols-outlined text-lg">arrow_back</span>
-        <span class="font-mono text-sm uppercase">Back to Home</span>
+        <Icon name="arrow_back" size={20} class="text-lg" />
+        <span class="font-mono text-sm uppercase">Back to Dear Dates</span>
       </a>
     </div>
 
@@ -49,8 +50,8 @@ import Layout from "../../layouts/Layout.astro";
           transmitting your personal data.
         </p>
         <p class="text-lg text-white leading-relaxed">
-          All information you enter stays on your device and remains fully under your
-          control.
+          All information you enter stays on your device and remains fully under
+          your control.
         </p>
       </section>
 
@@ -105,13 +106,16 @@ import Layout from "../../layouts/Layout.astro";
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              <strong>Notification Data:</strong> minimal notification information (event names, dates, reminder days) stored separately for notification delivery
+              <strong>Notification Data:</strong> minimal notification information
+              (event names, dates, reminder days) stored separately for notification
+              delivery
             </span>
           </li>
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              <strong>App Preferences:</strong> language settings, onboarding completion status, and other preferences stored using iOS UserDefaults
+              <strong>App Preferences:</strong> language settings, onboarding completion
+              status, and other preferences stored using iOS UserDefaults
             </span>
           </li>
         </ul>
@@ -199,13 +203,15 @@ import Layout from "../../layouts/Layout.astro";
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Require minimal data (event names, dates, reminder days) to be stored separately for delivery when your device is locked
+              Require minimal data (event names, dates, reminder days) to be
+              stored separately for delivery when your device is locked
             </span>
           </li>
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Use iOS file protection mechanisms and are accessible only after your device is first unlocked following a restart
+              Use iOS file protection mechanisms and are accessible only after
+              your device is first unlocked following a restart
             </span>
           </li>
         </ul>
@@ -273,7 +279,9 @@ import Layout from "../../layouts/Layout.astro";
           </li>
         </ul>
         <p class="text-lg text-white leading-relaxed mt-4">
-          Dear Dates does not use third-party crash reporting services and does not collect crash data outside Apple's standard development and distribution tools.
+          Dear Dates does not use third-party crash reporting services and does
+          not collect crash data outside Apple's standard development and
+          distribution tools.
         </p>
       </section>
 
@@ -296,13 +304,17 @@ import Layout from "../../layouts/Layout.astro";
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Your main database is encrypted by iOS using NSFileProtectionComplete and is accessible only when your device is unlocked
+              Your main database is encrypted by iOS using
+              NSFileProtectionComplete and is accessible only when your device
+              is unlocked
             </span>
           </li>
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Notification-related data is stored separately using NSFileProtectionCompleteUntilFirstUserAuthentication to ensure reminders work correctly
+              Notification-related data is stored separately using
+              NSFileProtectionCompleteUntilFirstUserAuthentication to ensure
+              reminders work correctly
             </span>
           </li>
           <li class="flex items-start gap-3">
@@ -320,7 +332,8 @@ import Layout from "../../layouts/Layout.astro";
           </li>
         </ul>
         <p class="text-lg text-white leading-relaxed">
-          All file protection and encryption are handled by iOS and follow Apple's security best practices.
+          All file protection and encryption are handled by iOS and follow
+          Apple's security best practices.
         </p>
       </section>
 
@@ -381,7 +394,8 @@ import Layout from "../../layouts/Layout.astro";
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Export all your data at any time as a JSON file using the app's export feature
+              Export all your data at any time as a JSON file using the app's
+              export feature
             </span>
           </li>
           <li class="flex items-start gap-3">
@@ -393,7 +407,8 @@ import Layout from "../../layouts/Layout.astro";
           <li class="flex items-start gap-3">
             <span class="text-primary text-xl">•</span>
             <span class="text-lg text-white leading-relaxed">
-              Search and filter your data within the app (all processing is performed locally)
+              Search and filter your data within the app (all processing is
+              performed locally)
             </span>
           </li>
           <li class="flex items-start gap-3">
@@ -463,13 +478,16 @@ import Layout from "../../layouts/Layout.astro";
       <section class="mb-12 border-b border-surface-border pb-12">
         <h2 class="text-3xl font-bold text-white mb-6">CHILDREN'S PRIVACY</h2>
         <p class="text-lg text-white leading-relaxed mb-4">
-          Dear Dates is not specifically designed for children under the age of 13.
+          Dear Dates is not specifically designed for children under the age of
+          13.
         </p>
         <p class="text-lg text-white leading-relaxed mb-4">
-          We do not knowingly collect personal information from children under 13.
+          We do not knowingly collect personal information from children under
+          13.
         </p>
         <p class="text-lg text-white leading-relaxed">
-          If you believe that a child has provided personal information within the app, please contact us so we can address the issue.
+          If you believe that a child has provided personal information within
+          the app, please contact us so we can address the issue.
         </p>
       </section>
       <section class="mb-12 border-b border-surface-border pb-12">
@@ -559,9 +577,8 @@ import Layout from "../../layouts/Layout.astro";
           Dear Dates is built with privacy at its core.
         </p>
         <p class="text-lg text-white leading-relaxed mb-4">
-          We don't collect your data.
-          We don't track you.
-          We don't share your information.
+          We don't collect your data. We don't track you. We don't share your
+          information.
         </p>
         <p class="text-lg text-white leading-relaxed">
           Your memories stay private — exactly where they belong: on your

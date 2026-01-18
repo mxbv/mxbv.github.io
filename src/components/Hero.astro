@@ -1,4 +1,5 @@
 ---
+import Icon from "./Icon.astro";
 ---
 
 <section class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-4" id="hero">
@@ -7,7 +8,7 @@
     class="col-span-1 md:col-span-8 lg:col-span-9 bento-card rounded-2xl p-8 md:p-12 relative overflow-hidden group"
   >
     <div class="absolute top-0 right-0 p-6 opacity-20">
-      <span class="material-symbols-outlined text-6xl">design_services</span>
+      <Icon name="design_services" size={48} class="text-6xl opacity-20" />
     </div>
     <div class="h-full flex flex-col justify-between gap-8 relative z-10">
       <div>
@@ -57,28 +58,26 @@
           class="text-xs font-mono text-primary uppercase tracking-widest border border-primary px-2 py-0.5 rounded"
           >The Engine</span
         >
-        <span class="material-symbols-outlined text-primary">bolt</span>
+        <Icon name="bolt" size={20} class="text-primary" />
       </div>
       <div class="flex flex-col gap-4 my-4">
         <div class="flex items-center gap-3 text-sm font-mono text-gray-300">
-          <span class="material-symbols-outlined text-base">architecture</span>
+          <Icon name="architecture" size={16} class="text-base" />
           <span>Strategy</span>
         </div>
         <div class="w-0.5 h-4 bg-surface-border ml-2"></div>
         <div class="flex items-center gap-3 text-sm font-mono text-white">
-          <span class="material-symbols-outlined text-base text-primary"
-            >smart_toy</span
-          >
+          <Icon name="smart_toy" size={16} class="text-base text-primary" />
           <span>AI</span>
         </div>
         <div class="w-0.5 h-4 bg-surface-border ml-2"></div>
         <div class="flex items-center gap-3 text-sm font-mono text-gray-300">
-          <span class="material-symbols-outlined text-base">code</span>
+          <Icon name="code" size={16} class="text-base" />
           <span>Adjustment</span>
         </div>
         <div class="w-0.5 h-4 bg-surface-border ml-2"></div>
         <div class="flex items-center gap-3 text-sm font-mono text-gray-300">
-          <span class="material-symbols-outlined text-base">done</span>
+          <Icon name="done" size={16} class="text-base" />
           <span>Completed product</span>
         </div>
       </div>

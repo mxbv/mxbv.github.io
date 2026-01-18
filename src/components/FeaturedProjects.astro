@@ -1,5 +1,6 @@
 ---
 import { projects } from "../data/projects";
+import Icon from "./Icon.astro";
 ---
 
 <section class="mt-20" id="work">
@@ -7,7 +8,7 @@ import { projects } from "../data/projects";
     <h2
       class="text-2xl font-bold tracking-tight text-white flex items-center gap-3"
     >
-      <span class="material-symbols-outlined text-primary">view_kanban</span>
+      <Icon name="view_kanban" size={24} class="text-primary" />
       <span>Selected Work</span>
     </h2>
     <span class="font-mono text-xs text-text-dim hidden md:block">
@@ -52,9 +53,7 @@ import { projects } from "../data/projects";
                     : undefined
                 }
               >
-                <span class="material-symbols-outlined text-sm">
-                  arrow_outward
-                </span>
+                <Icon name="arrow_outward" size={16} class="text-sm" />
               </a>
             </div>
             <div class="space-y-6">

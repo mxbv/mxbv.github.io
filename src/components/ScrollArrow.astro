@@ -1,5 +1,5 @@
 ---
-
+import Icon from "./Icon.astro";
 ---
 
 <div
@@ -11,10 +11,13 @@
     class="w-12 h-12 rounded-full bg-surface-dark border border-surface-border flex items-center justify-center text-white transition-all group"
     aria-label="Scroll to bottom"
   >
-    <span
-      class="material-symbols-outlined transition-all duration-300 group-hover:scale-110"
-      id="scroll-icon">keyboard_arrow_down</span
-    >
+    <span id="scroll-icon" class="inline-flex items-center justify-center">
+      <Icon
+        name="keyboard_arrow_down"
+        size={24}
+        class="transition-all duration-300 group-hover:scale-110"
+      />
+    </span>
   </button>
 </div>
 

@@ -19,7 +19,7 @@ export const projects: Project[] = [
     technologies: ["Swift", "SwiftUI"],
     imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuCyiaOrHH5yqdVDPReEpME3AYg-zCF1yRLtbRiYT3bwe9I69j9nTSaMNQXJGWaaFtYFaZhbnnJoKJpQNyPJpKZLhgpFh-6bNaNyYUOgVwHb8CIV18xLxjhD4e6PhUGSC0_dV0Zi8C3H4KXqFhX1mBQDITRwedreAF5WsBoimFRM-TzVMSd-kUTjf1JyGM3WBKy5C0KhSFoAFRVDfOcaDwAEs2HjRxwZ9-Sn1lHgnBCi2t3kL_k4Z68UkDJYZuHJ_NFJtCJudrdzjWZL",
     imageAlt: "Dear Dates - Managing important dates and gifts",
-    link: "#",
+    link: "/deardates",
   },
   {
     title: "Svidomo",

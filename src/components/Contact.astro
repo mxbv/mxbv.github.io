@@ -1,5 +1,6 @@
 ---
 import { contacts } from "../data/contacts";
+import Icon from "./Icon.astro";
 ---
 
 <section class="grid grid-cols-1 md:grid-cols-2 gap-4" id="contact">
@@ -15,10 +16,11 @@ import { contacts } from "../data/contacts";
       class="bg-primary hover:bg-primary text-white font-bold py-4 px-8 rounded-lg transition-all flex items-center gap-2 group"
     >
       <span>Initiate Project</span>
-      <span
-        class="material-symbols-outlined group-hover:translate-x-1 transition-transform"
-        >arrow_forward</span
-      >
+      <Icon
+        name="arrow_forward"
+        size={20}
+        class="group-hover:translate-x-1 transition-transform"
+      />
     </button>
   </div>
   <div class="flex flex-col gap-4">
@@ -33,7 +35,7 @@ import { contacts } from "../data/contacts";
       >
         <div class="flex items-center gap-4">
           <div class="w-12 h-12 rounded-lg bg-surface-dark border border-surface-border flex items-center justify-center text-white group-hover:text-primary transition-colors">
-            <span class="material-symbols-outlined">{contact.icon}</span>
+            <Icon name={contact.icon} size={24} />
           </div>
           <div>
             <p class="text-sm font-mono text-text-dim uppercase">
@@ -42,9 +44,11 @@ import { contacts } from "../data/contacts";
             <p class="text-lg font-bold text-white">{contact.value}</p>
           </div>
         </div>
-        <span class="material-symbols-outlined text-gray-500 group-hover:text-white transition-colors">
-          arrow_outward
-        </span>
+        <Icon
+          name="arrow_outward"
+          size={20}
+          class="text-gray-500 group-hover:text-white transition-colors"
+        />
       </a>
     ))}
   </div>
