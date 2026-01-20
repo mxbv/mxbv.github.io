@@ -1,4 +1,4 @@
-# Max Baranov - Portfolio
+# Maksym Baranov - Portfolio
 
 High-end, single-page professional portfolio built with Astro.js, Tailwind CSS, and Phosphor Icons.
 

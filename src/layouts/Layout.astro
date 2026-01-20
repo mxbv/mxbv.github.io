@@ -3,7 +3,7 @@ interface Props {
   title?: string;
 }
 
-const { title = "Max Baranov - Product Creator & AI-Augmented Developer" } =
+const { title = "Maksym Baranov - Product Creator & AI-Augmented Developer" } =
   Astro.props;
 ---
 
@@ -15,7 +15,7 @@ const { title = "Max Baranov - Product Creator & AI-Augmented Developer" } =
     <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
     <meta
       name="description"
-      content="Max Baranov - Bridging ideas and shipping products at 5x speed through AI-Augmented Engineering"
+      content="Maksym Baranov - Bridging ideas and shipping products at 5x speed through AI-Augmented Engineering"
     />
     <title>{title}</title>
   </head>
@@ -156,38 +156,8 @@ const { title = "Max Baranov - Product Creator & AI-Augmented Developer" } =
     border-color: rgba(13, 147, 242, 0.3);
   }
 
-  /* Custom color utilities */
-  .text-primary {
-    color: #0d93f2 !important;
-  }
-
-  .bg-primary {
-    background-color: #0d93f2 !important;
-  }
-
-  .border-primary {
-    border-color: #0d93f2 !important;
-  }
-
-  .text-text-dim {
-    color: #888888 !important;
-  }
-
-  .bg-background-dark {
-    background-color: #0d0d0d !important;
-  }
-
-  .bg-surface-dark {
-    background-color: #141414 !important;
-  }
-
-  .border-surface-border {
-    border-color: #262626 !important;
-  }
-
-  .bg-surface-border {
-    background-color: #262626 !important;
-  }
+  /* Custom color utilities - теперь используются из Tailwind конфига */
+  /* Цвета определены в tailwind.config.mjs и доступны через классы Tailwind */
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {

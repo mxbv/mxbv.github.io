@@ -2,6 +2,7 @@
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { iconMap, getIconComponentName } from "../data/icons";
 
 interface Props {
   name: string;
@@ -19,70 +20,52 @@ const {
   id,
 } = Astro.props;
 
-// Маппинг Material Symbols на Heroicons (kebab-case имена для файлов)
-const iconMap: Record<string, string> = {
-  design_services: "paint-brush",
-  bolt: "bolt",
-  architecture: "building-office-2",
-  smart_toy: "cpu-chip",
-  code: "code-bracket",
-  done: "check-circle",
-  view_kanban: "squares-2x2",
-  arrow_outward: "arrow-top-right-on-square",
-  precision_manufacturing: "cog-6-tooth",
-  arrow_forward: "arrow-right",
-  mail: "envelope",
-  send: "paper-airplane",
-  link: "link",
-  keyboard_arrow_down: "chevron-down",
-  person: "user",
-  sort: "bars-arrow-up",
-  notifications: "bell",
-  card_giftcard: "gift",
-  calendar_month: "calendar-days",
-  lock: "lock-closed",
-  arrow_back: "arrow-left",
-  home: "home",
-};
+// Кэш для загруженных иконок (в памяти, для SSR)
+const iconCache = new Map<string, { content: string; viewBox: string }>();
 
 const heroiconName = iconMap[name] || name;
-// Heroicons React хранит иконки в JS файлах с PascalCase именами
-const iconComponentName = `${heroiconName
-  .split("-")
-  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-  .join("")}Icon`;
+const iconComponentName = getIconComponentName(heroiconName);
 
 let iconContent = "";
 let viewBox = "0 0 24 24";
 
-try {
-  // Получаем корень проекта - пробуем разные способы
-  let projectRoot: string;
+// Создаем уникальный ключ для кэша
+const cacheKey = `${iconComponentName}-${variant}`;
+
+// Проверяем кэш
+const cached = iconCache.get(cacheKey);
+if (cached) {
+  iconContent = cached.content;
+  viewBox = cached.viewBox;
+} else {
   try {
-    // В Astro process.cwd() должен работать
-    projectRoot = process.cwd();
-  } catch {
-    // Fallback: используем import.meta.url
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = dirname(__filename);
-    projectRoot = join(__dirname, "../../../");
-  }
+    // Получаем корень проекта - пробуем разные способы
+    let projectRoot: string;
+    try {
+      // В Astro process.cwd() должен работать
+      projectRoot = process.cwd();
+    } catch {
+      // Fallback: используем import.meta.url
+      const __filename = fileURLToPath(import.meta.url);
+      const __dirname = dirname(__filename);
+      projectRoot = join(__dirname, "../../../");
+    }
 
-  // Heroicons React структура: node_modules/@heroicons/react/24/outline/IconNameIcon.js
-  const sizeDir = variant === "mini" ? "20" : "24";
-  const variantDir = variant === "mini" ? "solid" : variant;
-  const iconPath = join(
-    projectRoot,
-    "node_modules",
-    "@heroicons",
-    "react",
-    sizeDir,
-    variantDir,
-    `${iconComponentName}.js`,
-  );
+    // Heroicons React структура: node_modules/@heroicons/react/24/outline/IconNameIcon.js
+    const sizeDir = variant === "mini" ? "20" : "24";
+    const variantDir = variant === "mini" ? "solid" : variant;
+    const iconPath = join(
+      projectRoot,
+      "node_modules",
+      "@heroicons",
+      "react",
+      sizeDir,
+      variantDir,
+      `${iconComponentName}.js`,
+    );
 
-  // Читаем JS файл и извлекаем SVG из JSX
-  const jsContent = readFileSync(iconPath, "utf-8");
+    // Читаем JS файл и извлекаем SVG из JSX
+    const jsContent = readFileSync(iconPath, "utf-8");
 
   // Ищем viewBox в svg элементе
   const viewBoxMatch = jsContent.match(/viewBox:\s*"([^"]+)"/);
@@ -122,15 +105,19 @@ try {
       iconContent += `<path ${pathAttrs.join(" ")} />`;
     }
   }
-} catch (e: any) {
-  if (import.meta.env.DEV) {
-    const errorMsg = e?.message || String(e);
-    const errorPath = e?.path || "unknown";
-    console.warn(`Icon not found: ${heroiconName} (${variant})`, {
-      error: errorMsg,
-      path: errorPath,
-      componentName: iconComponentName,
-    });
+
+    // Сохраняем в кэш
+    iconCache.set(cacheKey, { content: iconContent, viewBox });
+  } catch (e: any) {
+    if (import.meta.env.DEV) {
+      const errorMsg = e?.message || String(e);
+      const errorPath = e?.path || "unknown";
+      console.warn(`Icon not found: ${heroiconName} (${variant})`, {
+        error: errorMsg,
+        path: errorPath,
+        componentName: iconComponentName,
+      });
+    }
   }
 }
 

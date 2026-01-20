@@ -5,7 +5,7 @@ import Icon from "./Icon.astro";
 <section class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-4" id="hero">
   <!-- Main Title Cell -->
   <div
-    class="col-span-1 md:col-span-8 lg:col-span-9 bento-card rounded-2xl p-8 md:p-12 relative overflow-hidden group"
+    class="col-span-1 md:col-span-8 lg:col-span-9 rounded-2xl p-8 md:p-12 relative overflow-hidden group"
   >
     <div class="absolute top-0 right-0 p-6 opacity-20">
       <Icon name="design_services" size={48} class="text-6xl opacity-20" />
@@ -23,7 +23,7 @@ import Icon from "./Icon.astro";
         <h1
           class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-4"
         >
-          Max<br />Baranov
+          Maksym<br />Baranov
         </h1>
         <p
           class="text-lg md:text-xl text-gray-400 max-w-2xl font-light leading-relaxed"
@@ -40,18 +40,17 @@ import Icon from "./Icon.astro";
       </p>
     </div>
     <!-- Animated gradient background -->
-    <div class="absolute inset-0 pointer-events-none hero-gradient-overlay"></div>
-    <div class="absolute inset-0 pointer-events-none hero-animated-gradient"></div>
+    <div class="absolute inset-0 pointer-events-none hero-gradient-overlay">
+    </div>
+    <div class="absolute inset-0 pointer-events-none hero-animated-gradient">
+    </div>
   </div>
 
   <!-- AI Stack Widget Cell -->
   <div
     class="col-span-1 md:col-span-4 lg:col-span-3 bento-card rounded-2xl p-6 flex flex-col justify-between group glow-hover relative overflow-hidden"
   >
-    <div
-          class="absolute inset-0"
-    >
-    </div>
+    <div class="absolute inset-0"></div>
     <div class="relative z-10">
       <div class="flex items-center justify-between mb-4">
         <span
@@ -91,9 +90,17 @@ import Icon from "./Icon.astro";
 
 <style>
   .hero-gradient-overlay {
-    background: 
-      radial-gradient(circle at 0% 100%, rgba(13, 147, 242, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 10% 90%, rgba(13, 147, 242, 0.05) 0%, transparent 60%),
+    background:
+      radial-gradient(
+        circle at 0% 100%,
+        rgba(13, 147, 242, 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 10% 90%,
+        rgba(13, 147, 242, 0.05) 0%,
+        transparent 60%
+      ),
       linear-gradient(45deg, rgba(13, 147, 242, 0.04) 0%, transparent 40%);
     opacity: 1;
     transition: opacity 0.3s ease;
@@ -104,7 +111,11 @@ import Icon from "./Icon.astro";
   }
 
   .hero-animated-gradient {
-    background: linear-gradient(to top, rgba(13, 147, 242, 0.15) 0%, transparent 60%);
+    background: linear-gradient(
+      to top,
+      rgba(13, 147, 242, 0.15) 0%,
+      transparent 60%
+    );
     animation: shimmer 4s ease-in-out infinite;
     bottom: 0;
     top: auto;
@@ -112,7 +123,8 @@ import Icon from "./Icon.astro";
   }
 
   @keyframes shimmer {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.6;
     }
     50% {
@@ -121,20 +133,29 @@ import Icon from "./Icon.astro";
   }
 
   .hero-animated-gradient::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 100%;
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(13, 147, 242, 0.2) 0%, transparent 40%),
-      radial-gradient(circle at 80% 90%, rgba(13, 147, 242, 0.15) 0%, transparent 50%);
+    background:
+      radial-gradient(
+        circle at 20% 80%,
+        rgba(13, 147, 242, 0.2) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 90%,
+        rgba(13, 147, 242, 0.15) 0%,
+        transparent 50%
+      );
     animation: pulse 3s ease-in-out infinite;
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.4;
     }
     50% {

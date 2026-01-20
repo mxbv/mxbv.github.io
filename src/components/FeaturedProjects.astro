@@ -1,6 +1,7 @@
 ---
 import { projects } from "../data/projects";
 import Icon from "./Icon.astro";
+import Card from "./Card.astro";
 ---
 
 <section class="mt-20" id="work">
@@ -15,70 +16,64 @@ import Icon from "./Icon.astro";
       01 — {String(projects.length).padStart(2, "0")}
     </span>
   </div>
-  <div class="flex flex-col gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {
       projects.map((project, index) => (
-        <article
-          class={`bento-card rounded-2xl p-0 overflow-hidden group grid grid-cols-1 lg:grid-cols-2`}
-        >
-          <div
-            class={`h-64 lg:h-auto bg-surface-dark relative overflow-hidden flex items-center justify-center ${project.reverse ? "lg:order-2" : ""}`}
-          >
-            <div
-              class="absolute inset-0 bg-contain bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
-              style={`background-image: url('${project.imageUrl}');`}
-              data-alt={project.imageAlt || project.title}
-            />
-            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-          </div>
-          <div
-            class={`p-8 lg:p-12 flex flex-col justify-center ${project.reverse ? "lg:order-1" : ""}`}
-          >
-            <div class="flex items-start justify-between mb-6">
-              <div>
-                <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p class="font-mono text-xs text-text-dim uppercase tracking-wider">
-                  {project.subtitle}
-                </p>
-              </div>
-              <a
-                class="w-10 h-10 rounded-full border border-surface-border flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
-                href={project.link}
-                target={project.link.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  project.link.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-              >
-                <Icon name="arrow_outward" size={16} class="text-sm" />
-              </a>
+        <Card variant="dark" padding="md" class="overflow-hidden group hover:border-primary/50" as="article">
+          <div class="flex items-start gap-4">
+            <!-- Logo слева -->
+            <div class="flex-shrink-0 w-16 h-16 rounded-xl bg-surface-dark flex items-center justify-center overflow-hidden">
+              <img
+                src={project.imageUrl}
+                alt={project.imageAlt || project.title}
+                class="w-full h-full object-contain p-2"
+              />
             </div>
-            <div class="space-y-6">
-              <div>
-                <p class="text-xs font-mono text-primary mb-1">PROBLEM</p>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                  {project.problem}
-                </p>
+
+            <!-- Контент справа -->
+            <div class="flex-1 min-w-0">
+              <!-- Название и кнопка -->
+              <div class="flex items-start justify-between gap-4 mb-3">
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p class="font-mono text-xs text-text-dim uppercase tracking-wider">
+                    {project.subtitle}
+                  </p>
+                </div>
+                <!-- Кнопка ссылки напротив заголовка -->
+                <a
+                  class="flex-shrink-0 w-10 h-10 rounded-full border border-surface-border flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+                  href={project.link}
+                  target={project.link.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    project.link.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  aria-label={`Visit ${project.title}`}
+                >
+                  <Icon name="arrow_outward" size={16} class="text-sm" />
+                </a>
               </div>
-              <div>
-                <p class="text-xs font-mono text-primary mb-1">SOLUTION</p>
-                <p class="text-white text-sm leading-relaxed">
-                  {project.solution}
-                </p>
+
+              <!-- Описание -->
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                {project.solution}
+              </p>
+
+              <!-- Технологии -->
+              <div class="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <span class="px-3 py-1 rounded-md bg-surface-border/50 border border-surface-border text-xs font-mono text-gray-300">
+                    {tech}
+                  </span>
+                ))}
               </div>
-            </div>
-            <div class="mt-8 flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <span class="px-3 py-1 rounded-md bg-surface-border/50 border border-surface-border text-xs font-mono text-gray-300">
-                  {tech}
-                </span>
-              ))}
             </div>
           </div>
-        </article>
+        </Card>
       ))
     }
   </div>

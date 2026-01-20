@@ -13,11 +13,11 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "Dear Dates",
-    subtitle: "Managing important dates and gifts",
+    subtitle: "Managing Special Moments",
     problem: "We all want to remember the important people in our lives, but in the hustle of daily life, it's easy to forget birthdays, lose track of gift ideas, and miss anniversaries.",
-    solution: `App that combines date tracking, gift management, and personal information in one place, with smart reminders and privacy-first local storage.`,
+    solution: `A simple way to remember what's important and make your loved ones happy on time. Create profiles with photos and notes, use smart sorting to prioritize events, set flexible reminders a week or day in advance. Keep wish lists for gifts, plan your year on a calendar, and find everything instantly through search. All data is stored only on your device.`,
     technologies: ["Swift", "SwiftUI"],
-    imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuCyiaOrHH5yqdVDPReEpME3AYg-zCF1yRLtbRiYT3bwe9I69j9nTSaMNQXJGWaaFtYFaZhbnnJoKJpQNyPJpKZLhgpFh-6bNaNyYUOgVwHb8CIV18xLxjhD4e6PhUGSC0_dV0Zi8C3H4KXqFhX1mBQDITRwedreAF5WsBoimFRM-TzVMSd-kUTjf1JyGM3WBKy5C0KhSFoAFRVDfOcaDwAEs2HjRxwZ9-Sn1lHgnBCi2t3kL_k4Z68UkDJYZuHJ_NFJtCJudrdzjWZL",
+    imageUrl: "/assets/img/projects/dearDates.png",
     imageAlt: "Dear Dates - Managing important dates and gifts",
     link: "/deardates",
   },
