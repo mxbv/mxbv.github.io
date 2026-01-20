@@ -4,8 +4,8 @@ import Icon from "./Icon.astro";
 import Card from "./Card.astro";
 ---
 
-<section class="mt-20" id="work">
-  <div class="flex items-end justify-between mb-8 px-2">
+<section class="mt-16" id="work">
+  <div class="flex items-end justify-between mb-4 px-2">
     <h2
       class="text-2xl font-bold tracking-tight text-white flex items-center gap-3"
     >
@@ -21,20 +21,17 @@ import Card from "./Card.astro";
       projects.map((project, index) => (
         <Card variant="dark" padding="md" class="overflow-hidden group hover:border-primary/50" as="article">
           <div class="flex items-start gap-4">
-            <!-- Logo слева -->
-            <div class="flex-shrink-0 w-16 h-16 rounded-xl bg-surface-dark flex items-center justify-center overflow-hidden">
-              <img
-                src={project.imageUrl}
-                alt={project.imageAlt || project.title}
-                class="w-full h-full object-contain p-2"
-              />
-            </div>
-
             <!-- Контент справа -->
             <div class="flex-1 min-w-0">
               <!-- Название и кнопка -->
-              <div class="flex items-start justify-between gap-4 mb-3">
+              <div class="flex items-start justify-between gap-4 mb-3 items-center">
+                <img
+                src={project.imageUrl}
+                alt={project.imageAlt || project.title}
+                class="w-12 h-12 object-contain"
+              />
                 <div class="flex-1 min-w-0">
+
                   <h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>

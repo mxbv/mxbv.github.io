@@ -51,9 +51,12 @@ import Icon from "./Icon.astro";
       if (!contactSection || !scrollIcon || !scrollButton) return;
 
       const contactRect = contactSection.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      
       // Проверяем, видна ли секция контактов в области просмотра
-      // Переключаем стрелку, когда верхняя граница секции находится в верхней трети экрана
-      const isContactVisible = contactRect.top <= window.innerHeight * 0.3 && contactRect.bottom > 0;
+      // Переключаем стрелку, когда верхняя граница секции находится выше середины экрана
+      // Это работает независимо от высоты секций
+      const isContactVisible = contactRect.top < viewportHeight / 2 && contactRect.bottom > 0;
 
       if (isContactVisible) {
         // Показываем стрелку вверх с анимацией разворота
@@ -76,8 +79,9 @@ import Icon from "./Icon.astro";
       if (!contactSection) return;
 
       const contactRect = contactSection.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
       // Используем ту же логику, что и в updateScrollButton
-      const isContactVisible = contactRect.top <= window.innerHeight * 0.3 && contactRect.bottom > 0;
+      const isContactVisible = contactRect.top < viewportHeight / 2 && contactRect.bottom > 0;
 
       if (isContactVisible) {
         // Скроллим наверх

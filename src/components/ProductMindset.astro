@@ -3,7 +3,7 @@ import Icon from "./Icon.astro";
 import Card from "./Card.astro";
 ---
 
-<section class="mt-4 mb-4" id="discipline">
+<section class="mt-16" id="discipline">
   <Card variant="dark" padding="xl" class="relative overflow-hidden">
     <!-- Background Decoration -->
     <div
@@ -11,7 +11,7 @@ import Card from "./Card.astro";
       style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"
     >
     </div>
-    <div class="flex flex-col lg:flex-row gap-12 items-start relative z-10">
+    <div class="flex flex-col lg:flex-row md:gap-12 gap-6 items-start relative z-10">
       <div class="flex-1">
         <div class="flex items-center gap-3 mb-6">
           <Icon name="precision_manufacturing" size={24} class="text-primary" />
@@ -21,9 +21,7 @@ import Card from "./Card.astro";
             The Product Mindset
           </h2>
         </div>
-        <h3
-          class="text-3xl md:text-4xl font-bold text-white leading-tight mb-6"
-        >
+        <h3 class="text-3xl md:text-4xl font-bold text-white leading-tight">
           Engineering for Velocity.
         </h3>
       </div>
