@@ -20,7 +20,7 @@ const { title = "Maksym Baranov - Product Creator & AI-Augmented Developer" } =
     <title>{title}</title>
   </head>
   <body
-    class="bg-background-dark min-h-screen flex flex-col font-display antialiased"
+    class="bg-background-dark min-h-screen flex flex-col antialiased"
   >
     <slot />
     <script is:inline>
@@ -114,46 +114,47 @@ const { title = "Maksym Baranov - Product Creator & AI-Augmented Developer" } =
 </html>
 
 <style is:global>
-  /* Local fonts */
-  @font-face {
-    font-family: "Inter";
-    src: url("/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf")
-      format("truetype");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-    font-optical-sizing: auto;
+  html {
+    scroll-behavior: smooth;
+    background: #1A1A1A;
   }
-
-  @font-face {
-    font-family: "Space Mono";
-    src: url("/assets/fonts/Space_Mono/SpaceMono-Regular.ttf")
-      format("truetype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
   body {
-    background-color: #0d0d0d;
+    background: linear-gradient(180deg, #0F0F0F 0%, #1A1A1A 100%);
+    background-attachment: fixed;
     color: #ffffff;
-    font-family: "Inter", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    line-height: 1.7;
   }
 
   .bento-card {
-    background-color: #141414;
-    border: 1px solid #262626;
-    transition: all 0.3s ease;
+    background-color: #1F1F1F;
+    border: 1px solid #2F2F2F;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .bento-card:hover {
-    border-color: #333333;
-    transform: translateY(-2px);
+    border-color: #3A3A3A;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px -6px rgba(0, 0, 0, 0.4);
   }
 
   .glow-hover:hover {
-    box-shadow: 0 0 25px rgba(13, 147, 242, 0.15);
-    border-color: rgba(13, 147, 242, 0.3);
+    box-shadow: 0 0 40px -8px rgba(91, 141, 239, 0.25);
+    border-color: rgba(91, 141, 239, 0.4);
   }
 
   /* Custom color utilities - теперь используются из Tailwind конфига */
@@ -161,16 +162,16 @@ const { title = "Maksym Baranov - Product Creator & AI-Augmented Developer" } =
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: #0d0d0d;
+    background: #1A1A1A;
   }
   ::-webkit-scrollbar-thumb {
-    background: #262626;
-    border-radius: 4px;
+    background: #2F2F2F;
+    border-radius: 8px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #444;
+    background: #3A3A3A;
   }
 </style>

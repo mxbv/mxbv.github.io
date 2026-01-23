@@ -1,76 +1,64 @@
 ---
 import { projects } from "../data/projects";
 import Icon from "./Icon.astro";
-import Card from "./Card.astro";
 ---
 
-<section class="mt-16" id="work">
-  <div class="flex items-end justify-between mb-4 px-2">
+<section class="mt-20" id="work">
+  <div class="flex items-end justify-between mb-6 px-2">
     <h2
-      class="text-2xl font-bold tracking-tight text-white flex items-center gap-3"
+      class="text-xl font-bold tracking-tight-soft text-white flex items-center gap-4 leading-tight"
     >
       <Icon name="view_kanban" size={24} class="text-primary" />
-      <span>Selected Work</span>
+      <span>Featured Work</span>
     </h2>
     <span class="font-mono text-xs text-text-dim hidden md:block">
       01 — {String(projects.length).padStart(2, "0")}
     </span>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     {
       projects.map((project, index) => (
-        <Card variant="dark" padding="md" class="overflow-hidden group hover:border-primary/50" as="article">
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bento-card p-6 group hover:border-primary/50"
+        >
           <div class="flex items-start gap-4">
-            <!-- Контент справа -->
             <div class="flex-1 min-w-0">
-              <!-- Название и кнопка -->
               <div class="flex items-start justify-between gap-4 mb-3 items-center">
                 <img
-                src={project.imageUrl}
-                alt={project.imageAlt || project.title}
-                class="w-12 h-12 object-contain"
-              />
+                  src={project.imageUrl}
+                  alt={project.imageAlt || project.title}
+                  class="w-14 h-14 object-contain rounded-xl"
+                />
                 <div class="flex-1 min-w-0">
-
-                  <h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">
+                  <h3 class="text-xl font-semibold text-white mb-2  leading-snug">
                     {project.title}
                   </h3>
-                  <p class="font-mono text-xs text-text-dim uppercase tracking-wider">
+                  <p class="font-mono text-xs text-text-soft uppercase tracking-wide-soft">
                     {project.subtitle}
                   </p>
                 </div>
-                <!-- Кнопка ссылки напротив заголовка -->
-                <a
-                  class="flex-shrink-0 w-10 h-10 rounded-full border border-surface-border flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
-                  href={project.link}
-                  target={project.link.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    project.link.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  aria-label={`Visit ${project.title}`}
-                >
-                  <Icon name="arrow_outward" size={16} class="text-sm" />
-                </a>
+                <div class="flex-shrink-0 w-12 h-12 rounded-2xl group-hover:text-primary flex items-center justify-center text-white/50 transition-all duration-300 ease-out text-xl transform group-hover:rotate-[-45deg]">
+                  →
+                </div>
               </div>
 
-              <!-- Описание -->
-              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              <p class="text-text-soft text-sm leading-relaxed-soft mb-5 tracking-normal-soft">
                 {project.solution}
               </p>
 
-              <!-- Технологии -->
-              <div class="flex flex-wrap gap-2">
+              <div class="flex flex-wrap gap-2.5">
                 {project.technologies.map((tech) => (
-                  <span class="px-3 py-1 rounded-md bg-surface-border/50 border border-surface-border text-xs font-mono text-gray-300">
+                  <span class="px-4 py-1.5 rounded-xl bg-surface-soft/60 bento-card text-xs font-mono text-text-soft backdrop-blur-soft text-white/70">
                     {tech}
                   </span>
                 ))}
               </div>
             </div>
           </div>
-        </Card>
+        </a>
       ))
     }
   </div>

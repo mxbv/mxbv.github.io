@@ -2,7 +2,6 @@
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { iconMap, getIconComponentName } from "../data/icons";
 
 interface Props {
   name: string;
@@ -19,6 +18,32 @@ const {
   class: className = "",
   id,
 } = Astro.props;
+
+// Маппинг для обратной совместимости
+const iconMap: Record<string, string> = {
+  arrow_back: "arrow-left",
+  person: "user",
+  sort: "bars-arrow-up",
+  notifications: "bell",
+  card_giftcard: "gift",
+  calendar_month: "calendar-days",
+  lock: "lock-closed",
+  bolt: "bolt",
+  architecture: "building-office-2",
+  smart_toy: "cpu-chip",
+  code: "code-bracket",
+  done: "check-circle",
+  view_kanban: "squares-2x2",
+  precision_manufacturing: "cog-6-tooth",
+};
+
+// Преобразует kebab-case в PascalCase для Heroicons
+function getIconComponentName(iconName: string): string {
+  return `${iconName
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join("")}Icon`;
+}
 
 // Кэш для загруженных иконок (в памяти, для SSR)
 const iconCache = new Map<string, { content: string; viewBox: string }>();
@@ -38,19 +63,24 @@ if (cached) {
   iconContent = cached.content;
   viewBox = cached.viewBox;
 } else {
+  // Получаем корень проекта - пробуем разные способы
+  let projectRoot: string = "";
   try {
-    // Получаем корень проекта - пробуем разные способы
-    let projectRoot: string;
+    // В Astro process.cwd() должен работать
+    projectRoot = process.cwd();
+  } catch {
+    // Fallback: используем import.meta.url
     try {
-      // В Astro process.cwd() должен работать
-      projectRoot = process.cwd();
-    } catch {
-      // Fallback: используем import.meta.url
       const __filename = fileURLToPath(import.meta.url);
       const __dirname = dirname(__filename);
       projectRoot = join(__dirname, "../../../");
+    } catch {
+      // Последний fallback - используем относительный путь от текущего файла
+      projectRoot = join(process.cwd() || ".", ".");
     }
+  }
 
+  try {
     // Heroicons React структура: node_modules/@heroicons/react/24/outline/IconNameIcon.js
     const sizeDir = variant === "mini" ? "20" : "24";
     const variantDir = variant === "mini" ? "solid" : variant;
@@ -67,57 +97,71 @@ if (cached) {
     // Читаем JS файл и извлекаем SVG из JSX
     const jsContent = readFileSync(iconPath, "utf-8");
 
-  // Ищем viewBox в svg элементе
-  const viewBoxMatch = jsContent.match(/viewBox:\s*"([^"]+)"/);
-  if (viewBoxMatch) {
-    viewBox = viewBoxMatch[1];
-  }
-
-  // Извлекаем все path элементы из JSX
-  // Ищем все вхождения React.createElement("path", {...})
-  const pathMatches = [
-    ...jsContent.matchAll(/React\.createElement\("path",\s*\{([\s\S]*?)\}\)/g),
-  ];
-
-  for (const match of pathMatches) {
-    const pathProps = match[1];
-    const pathAttrs: string[] = [];
-
-    // Извлекаем d атрибут - может быть на одной или нескольких строках
-    const dMatch = pathProps.match(/d:\s*"([^"]+)"/);
-    if (dMatch) {
-      pathAttrs.push(`d="${dMatch[1]}"`);
+    // Ищем viewBox в svg элементе
+    const viewBoxMatch = jsContent.match(/viewBox:\s*"([^"]+)"/);
+    if (viewBoxMatch) {
+      viewBox = viewBoxMatch[1];
     }
 
-    // Извлекаем strokeLinecap
-    const strokeLinecapMatch = pathProps.match(/strokeLinecap:\s*"([^"]+)"/);
-    if (strokeLinecapMatch) {
-      pathAttrs.push(`stroke-linecap="${strokeLinecapMatch[1]}"`);
+    // Извлекаем все path элементы из JSX
+    // Ищем все вхождения React.createElement("path", {...})
+    const pathMatches = [
+      ...jsContent.matchAll(/React\.createElement\("path",\s*\{([\s\S]*?)\}\)/g),
+    ];
+
+    for (const match of pathMatches) {
+      const pathProps = match[1];
+      const pathAttrs: string[] = [];
+
+      // Извлекаем d атрибут - может быть на одной или нескольких строках
+      const dMatch = pathProps.match(/d:\s*"([^"]+)"/);
+      if (dMatch) {
+        pathAttrs.push(`d="${dMatch[1]}"`);
+      }
+
+      // Извлекаем strokeLinecap
+      const strokeLinecapMatch = pathProps.match(/strokeLinecap:\s*"([^"]+)"/);
+      if (strokeLinecapMatch) {
+        pathAttrs.push(`stroke-linecap="${strokeLinecapMatch[1]}"`);
+      }
+
+      // Извлекаем strokeLinejoin
+      const strokeLinejoinMatch = pathProps.match(/strokeLinejoin:\s*"([^"]+)"/);
+      if (strokeLinejoinMatch) {
+        pathAttrs.push(`stroke-linejoin="${strokeLinejoinMatch[1]}"`);
+      }
+
+      if (pathAttrs.length > 0) {
+        iconContent += `<path ${pathAttrs.join(" ")} />`;
+      }
     }
 
-    // Извлекаем strokeLinejoin
-    const strokeLinejoinMatch = pathProps.match(/strokeLinejoin:\s*"([^"]+)"/);
-    if (strokeLinejoinMatch) {
-      pathAttrs.push(`stroke-linejoin="${strokeLinejoinMatch[1]}"`);
+    // Сохраняем в кэш только если иконка успешно загружена
+    if (iconContent) {
+      iconCache.set(cacheKey, { content: iconContent, viewBox });
     }
-
-    if (pathAttrs.length > 0) {
-      iconContent += `<path ${pathAttrs.join(" ")} />`;
-    }
-  }
-
-    // Сохраняем в кэш
-    iconCache.set(cacheKey, { content: iconContent, viewBox });
   } catch (e: any) {
+    // Логируем ошибку в dev режиме и production (для отладки)
+    const errorMsg = e?.message || String(e);
+    const errorPath = e?.path || "unknown";
     if (import.meta.env.DEV) {
-      const errorMsg = e?.message || String(e);
-      const errorPath = e?.path || "unknown";
       console.warn(`Icon not found: ${heroiconName} (${variant})`, {
         error: errorMsg,
         path: errorPath,
         componentName: iconComponentName,
+        projectRoot: projectRoot || "unknown",
+        expectedPath: join(
+          projectRoot || "",
+          "node_modules",
+          "@heroicons",
+          "react",
+          variant === "mini" ? "20" : "24",
+          variant === "mini" ? "solid" : variant,
+          `${iconComponentName}.js`
+        ),
       });
     }
+    // В production просто не показываем иконку (iconContent останется пустым)
   }
 }
 

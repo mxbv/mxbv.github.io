@@ -9,8 +9,8 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@heroicons/react": "^2.1.5",
-    "astro": "^4.0.0"
+    "@heroicons/react": "^2.2.0",
+    "astro": "^5.16.12"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^5.1.0",

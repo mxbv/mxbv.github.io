@@ -23,7 +23,7 @@ export const projects: Project[] = [
   },
   {
     title: "Svidomo",
-    subtitle: "NATURAL WELLNESS KITS FOR CONSCIOUS LIVING",
+    subtitle: "NATURAL WELLNESS KITS",
     problem: "We all want to feel balanced, focused, and well-rested, but finding the right combination of adaptogens, herbal teas, and essential oils requires extensive research, trial and error, and often results in ineffective isolated products that miss the holistic approach needed for lasting wellness.",
     solution: "E-commerce platform offering curated wellness kits that combine science-backed adaptogens, functional herbal teas, essential oils, and crystals in ready-to-use rituals. Each kit targets a specific state (Energy, Focus, Calm, Sleep) with proven synergistic formulas that work simultaneously on body, mind, and senses.",
     technologies: ["Vue 3", "Tailwind CSS", "PHP", "Google API"],

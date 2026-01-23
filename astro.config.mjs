@@ -6,5 +6,9 @@ export default defineConfig({
   output: 'static',
   site: 'https://mxbv.github.io',
   base: '/',
+  server: {
+    host: true,
+    port: 4321,
+  },
 });
 
